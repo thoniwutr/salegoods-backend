@@ -23,6 +23,7 @@ const fetch = require('node-fetch')
       //console.log(sessionClient);
     const sessionPath = sessionClient.sessionPath(projectId, sessionId);
 
+    
     // Remember the Page Access Token you got from Facebook earlier?
     // Don't forget to add it to your `variables.env` file.
     // const { FACEBOOK_ACCESS_TOKEN } = process.env;
