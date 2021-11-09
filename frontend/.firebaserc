@@ -1,6 +1,5 @@
 {
   "projects": {
-    "yes": "bsd-salegoods"
-  },
-  "targets": {}
+    "default": "bsd-salegoods"
+  }
 }
