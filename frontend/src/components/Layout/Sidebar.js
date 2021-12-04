@@ -82,11 +82,12 @@ const pageContents = [
 
 const navItems = [
   { to: '/', name: 'dashboard', exact: true, Icon: MdDashboard },
+  { to: '/MainProduct', name: 'MainProduct', exact: false, Icon: MdBorderAll },
   { to: '/AddProducts', name: 'Add Products', exact: false, Icon: MdChromeReaderMode },
   { to: '/cards', name: 'cards', exact: false, Icon: MdWeb },
   { to: '/charts', name: 'charts', exact: false, Icon: MdInsertChart },
   { to: '/widgets', name: 'widgets', exact: false, Icon: MdWidgets },
-  { to: '/PrivacyPolicyPage', name: 'Privacy-Policy', exact: false, Icon: MdWeb },
+//   { to: '/PrivacyPolicyPage', name: 'Privacy-Policy', exact: false, Icon: MdWeb },
 ];
 
 const bem = bn.create('sidebar');

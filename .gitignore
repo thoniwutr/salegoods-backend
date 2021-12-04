@@ -5,3 +5,7 @@ frontend/lib
 frontend/privacy-policy.html
 .firebase
 frontend/.firebase
+Backend/package_temp.json
+frontend/.firebaserc_temp
+frontend/firebase_temp.json
+frontend/index_temp.html

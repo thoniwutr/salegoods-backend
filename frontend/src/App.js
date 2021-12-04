@@ -25,8 +25,9 @@ const TablePage = React.lazy(() => import('pages/TablePage'));
 const TypographyPage = React.lazy(() => import('pages/TypographyPage'));
 const WidgetPage = React.lazy(() => import('pages/WidgetPage'));
 //add
-const PrivacyPolicyPage = React.lazy(() => import('pages/PrivacyPolicyPage'));
+// const PrivacyPolicyPage = React.lazy(() => import('pages/PrivacyPolicyPage'));
 const AddProducts = React.lazy(() => import('pages/AddProducts'));
+const MainProduct = React.lazy(() => import('pages/MainProduct'));
 const getBasename = () => {
   return `/${process.env.PUBLIC_URL.split('/').pop()}`;
 };
@@ -57,7 +58,8 @@ class App extends React.Component {
             <MainLayout breakpoint={this.props.breakpoint}>
               <React.Suspense fallback={<PageSpinner />}>
                 <Route exact path="/" component={DashboardPage} />
-				<Route exact path="/PrivacyPolicyPage" component={PrivacyPolicyPage} />
+				{/* <Route exact path="/PrivacyPolicyPage" component={PrivacyPolicyPage} /> */}
+				<Route exact path="/MainProduct" component={MainProduct} />
 				<Route exact path="/AddProducts" component={AddProducts} />
                 <Route exact path="/login-modal" component={AuthModalPage} />
                 <Route exact path="/buttons" component={ButtonPage} />
