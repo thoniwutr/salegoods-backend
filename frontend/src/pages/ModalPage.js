@@ -37,7 +37,7 @@ class ModalPage extends React.Component {
 
   render() {
     return (
-      <Page title="Modals" breadcrumbs={[{ name: 'modals', active: true }]}>
+      <Page title="SaleProduct" breadcrumbs={[{ name: 'SaleProduct', active: true }]}>
         <Row>
           <Col md="12" sm="12" xs="12">
             <Card>

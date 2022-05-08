@@ -33,7 +33,7 @@ const sendTextMessage = (userId, text) => {
   console.log(userId);
   console.log(text);
   return fetch(
-    "https://graph.facebook.com/v2.6/me/messages?access_token=EAADZB19riRPkBAKt0IQIx2HnfC5KlMXTRugdQA4igoqvMybyuy67jPgqdrG4fHvCY3c3jy6BvPZCgwzgZADinB2rZAHcdKFmZC7qFa4VFIqtB6gPCJtG3Ob66l1hyPOod626HhZC87sFK8t7ZCnPRGMgtvZAs4ANvntaL92xMqPPgQuXEFm4g2fd",
+    "https://graph.facebook.com/v2.6/me/messages?access_token=EAADZB19riRPkBAGZCvvjGZAHxndsHp4G58Ibdd97BHAqrKj2V38gkSF4CN1VAcknfbU4L4arL5vFqg22aQStETeZCbhT0W8JcKCeQ5j0hV1vJDl2ZBFXMLjzHvkRZBYr0kyFEgBrtk1veFBtVxiMGeJ4WCUdmYQtBzZAtisoyXq6ndnO1bnUxZBZC",
     {
       headers: {
         "Content-Type": "application/json",

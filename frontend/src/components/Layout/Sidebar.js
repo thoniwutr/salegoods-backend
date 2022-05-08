@@ -62,7 +62,7 @@ const navComponents = [
   { to: '/badges', name: 'badges', exact: false, Icon: MdStar },
   { to: '/alerts', name: 'alerts', exact: false, Icon: MdNotificationsActive },
   { to: '/progress', name: 'progress', exact: false, Icon: MdBrush },
-  { to: '/modals', name: 'modals', exact: false, Icon: MdViewDay },
+  
 ];
 
 const navContents = [
@@ -84,6 +84,8 @@ const navItems = [
   { to: '/', name: 'dashboard', exact: true, Icon: MdDashboard },
   { to: '/MainProduct', name: 'MainProduct', exact: false, Icon: MdBorderAll },
   { to: '/AddProducts', name: 'Add Products', exact: false, Icon: MdChromeReaderMode },
+  { to: '/Salepage', name: 'Sale product', exact: false, Icon: MdViewDay },
+  { to: '/ManageOrder', name: 'Manage Order', exact: false, Icon: MdViewList },
   { to: '/cards', name: 'cards', exact: false, Icon: MdWeb },
   { to: '/charts', name: 'charts', exact: false, Icon: MdInsertChart },
   { to: '/widgets', name: 'widgets', exact: false, Icon: MdWidgets },

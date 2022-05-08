@@ -16,7 +16,7 @@ import {
 } from 'reactstrap';
 
 
-const FormPage = () => {
+const AddProducts = () => {
   return (
     <Page title="Products" breadcrumbs={[{ name: 'AddProducts', active: true }]}>
       <Row>
@@ -51,7 +51,24 @@ const FormPage = () => {
 					<option>XXXL</option>
                   </Input>
                 </FormGroup>
-
+				<FormGroup>
+                  <Label for="size">สีของสินค้า</Label>
+                  <Input type="select" name="size">
+				  	<option>ไม่มี</option>
+                    <option>เหลือง</option>
+                    <option>เขียว</option>
+                    <option>ส้ม</option>
+                    <option>แดง</option>
+                    <option>ขาว</option>
+					<option>ดำ</option>
+					<option>ชมพู</option>
+					<option>โอรส</option>
+					<option>น้ำตาล</option>
+					<option>เทา</option>
+					<option>ฟ้า</option>
+					<option>กรม</option>
+                  </Input>
+                </FormGroup>
                 <FormGroup>
                   <Label for="productNumber">จำนวนสินค้า</Label>
                   <Input
@@ -64,16 +81,6 @@ const FormPage = () => {
 					
                   />
                 </FormGroup>
-                <FormGroup>
-                  <Label for="exampleColor">Color</Label>
-                  <Input
-                    type="color"
-                    name="color"
-                    id="exampleColor"
-                    placeholder="color placeholder"
-                  />
-                </FormGroup>
-                
                 <FormGroup>
                   <Label for="exampleText">รหัสสั่งซื้อสินค้าสำหรับLive</Label>
                   <Input type="textarea" name="text" />
@@ -106,4 +113,4 @@ const FormPage = () => {
   );
 };
 
-export default FormPage;
+export default AddProducts;
