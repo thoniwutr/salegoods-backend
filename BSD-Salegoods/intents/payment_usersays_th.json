@@ -1,0 +1,80 @@
+[
+  {
+    "id": "545ce0b4-b1ea-445b-bec3-7f2f5778cd8c",
+    "data": [
+      {
+        "text": "รวมราคา",
+        "userDefined": false
+      }
+    ],
+    "isTemplate": false,
+    "count": 0,
+    "lang": "th",
+    "updated": 0
+  },
+  {
+    "id": "9b2033db-cafe-44b1-9361-b868a86d3971",
+    "data": [
+      {
+        "text": "ส่งเลขที่บัญชีได้เลยคะ",
+        "userDefined": false
+      }
+    ],
+    "isTemplate": false,
+    "count": 0,
+    "lang": "th",
+    "updated": 0
+  },
+  {
+    "id": "2ee5c160-ce92-48f7-80b3-b1857f458ca3",
+    "data": [
+      {
+        "text": "รวมราคาให้หน่อย",
+        "userDefined": false
+      }
+    ],
+    "isTemplate": false,
+    "count": 0,
+    "lang": "th",
+    "updated": 0
+  },
+  {
+    "id": "62f949cf-d011-4a74-81cc-eb35fcaa46e8",
+    "data": [
+      {
+        "text": "คิดเงินได้เลย",
+        "userDefined": false
+      }
+    ],
+    "isTemplate": false,
+    "count": 0,
+    "lang": "th",
+    "updated": 0
+  },
+  {
+    "id": "e0fcddee-20eb-4fce-9010-9844b2acbade",
+    "data": [
+      {
+        "text": "คิดเงินได้เลยค่ะ",
+        "userDefined": false
+      }
+    ],
+    "isTemplate": false,
+    "count": 0,
+    "lang": "th",
+    "updated": 0
+  },
+  {
+    "id": "71800b6d-f86b-478f-a5ab-a7a7607c2727",
+    "data": [
+      {
+        "text": "รวมจำนวน",
+        "userDefined": false
+      }
+    ],
+    "isTemplate": false,
+    "count": 0,
+    "lang": "th",
+    "updated": 0
+  }
+]

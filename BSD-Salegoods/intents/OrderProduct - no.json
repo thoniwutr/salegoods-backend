@@ -1,0 +1,46 @@
+{
+  "id": "26141d0c-a51e-441b-93c1-c8ce98618379",
+  "parentId": "ee2fd8c7-6c2d-48db-820d-1a241a975bec",
+  "rootParentId": "ee2fd8c7-6c2d-48db-820d-1a241a975bec",
+  "name": "OrderProduct - no",
+  "auto": true,
+  "contexts": [
+    "OrderProduct-followup"
+  ],
+  "responses": [
+    {
+      "resetContexts": false,
+      "action": "OrderProduct.OrderProduct-no",
+      "affectedContexts": [],
+      "parameters": [],
+      "messages": [
+        {
+          "type": "0",
+          "title": "",
+          "textToSpeech": "",
+          "lang": "th",
+          "speech": [
+            "โปรดพิมพ์ชื่อสินค้าอีกครั้ง"
+          ],
+          "condition": ""
+        },
+        {
+          "type": "0",
+          "title": "",
+          "textToSpeech": "",
+          "lang": "en",
+          "condition": ""
+        }
+      ],
+      "speech": []
+    }
+  ],
+  "priority": 500000,
+  "webhookUsed": false,
+  "webhookForSlotFilling": false,
+  "fallbackIntent": false,
+  "events": [],
+  "conditionalResponses": [],
+  "condition": "",
+  "conditionalFollowupEvents": []
+}

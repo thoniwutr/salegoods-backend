@@ -1,0 +1,164 @@
+[
+  {
+    "id": "0013958d-0e3a-4ae0-9207-df6755395cf3",
+    "data": [
+      {
+        "text": "รอยอดโอนคืนคะ",
+        "meta": "@Question",
+        "alias": "askAdmin",
+        "userDefined": false
+      }
+    ],
+    "isTemplate": false,
+    "count": 0,
+    "lang": "th",
+    "updated": 0
+  },
+  {
+    "id": "1027a152-ca65-4640-b8b9-d88065b7ab8a",
+    "data": [
+      {
+        "text": "เป็นผ้าอะไรค่ะ",
+        "meta": "@Question",
+        "alias": "askAdmin",
+        "userDefined": false
+      }
+    ],
+    "isTemplate": false,
+    "count": 0,
+    "lang": "th",
+    "updated": 0
+  },
+  {
+    "id": "7d5168b5-303b-4bc1-a18b-f9cd10c34295",
+    "data": [
+      {
+        "text": "จะได้เงิน",
+        "meta": "@Question",
+        "alias": "askAdmin",
+        "userDefined": false
+      },
+      {
+        "text": "คทอตอน",
+        "meta": "@Question",
+        "alias": "askAdmin",
+        "userDefined": false
+      },
+      {
+        "text": "ไหน",
+        "userDefined": false
+      },
+      {
+        "text": "ร อเป็นหลายเดือนแล้ว",
+        "userDefined": false
+      }
+    ],
+    "isTemplate": false,
+    "count": 0,
+    "lang": "th",
+    "updated": 0
+  },
+  {
+    "id": "b7530ac0-d3a0-44b0-951e-94eefc7d7ed2",
+    "data": [
+      {
+        "text": "คืนยอดให้",
+        "meta": "@Question",
+        "alias": "askAdmin",
+        "userDefined": false
+      },
+      {
+        "text": "หมดก่อน",
+        "userDefined": false
+      },
+      {
+        "text": "ได้ให",
+        "meta": "@Question",
+        "alias": "askAdmin",
+        "userDefined": false
+      },
+      {
+        "text": "ม",
+        "userDefined": false
+      }
+    ],
+    "isTemplate": false,
+    "count": 0,
+    "lang": "th",
+    "updated": 0
+  },
+  {
+    "id": "aeee110b-9f1d-4989-9f63-22cd53a6d501",
+    "data": [
+      {
+        "text": "ไหน",
+        "meta": "@Question",
+        "alias": "askAdmin",
+        "userDefined": false
+      },
+      {
+        "text": "เห็นแพดเลย",
+        "meta": "@Question",
+        "alias": "askAdmin",
+        "userDefined": false
+      }
+    ],
+    "isTemplate": false,
+    "count": 0,
+    "lang": "th",
+    "updated": 0
+  },
+  {
+    "id": "0ff337f7-5fa5-4ee4-8f81-8037f7d920bd",
+    "data": [
+      {
+        "text": "มียอดค้างสามารถหักลบได้เลย",
+        "userDefined": false
+      },
+      {
+        "text": "มั้ยคะ",
+        "meta": "@Question",
+        "alias": "askAdmin",
+        "userDefined": false
+      }
+    ],
+    "isTemplate": false,
+    "count": 0,
+    "lang": "th",
+    "updated": 0
+  },
+  {
+    "id": "c18578d8-a44a-4223-b267-9d87332695e2",
+    "data": [
+      {
+        "text": "คูปอง50บาท",
+        "userDefined": false
+      },
+      {
+        "text": "ยังใช้ได้มั้ยคะ",
+        "meta": "@Question",
+        "alias": "askAdmin",
+        "userDefined": true
+      }
+    ],
+    "isTemplate": false,
+    "count": 0,
+    "lang": "th",
+    "updated": 0
+  },
+  {
+    "id": "bce128bd-93f7-49c2-8683-7973111b66f7",
+    "data": [
+      {
+        "text": "หักยอดเดิมได้ไหม",
+        "meta": "@Question",
+        "alias": "askAdmin",
+        "userDefined": true
+      }
+    ],
+    "isTemplate": false,
+    "count": 0,
+    "lang": "th",
+    "updated": 0
+  }
+]

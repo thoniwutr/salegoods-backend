@@ -1,0 +1,80 @@
+{
+  "id": "092fde13-550f-4f81-a431-c5ba1973236c",
+  "parentId": "7b41b5f4-147b-4ba6-ac7a-0f32c043e69b",
+  "rootParentId": "7b41b5f4-147b-4ba6-ac7a-0f32c043e69b",
+  "name": "productConsoltant - Color",
+  "auto": true,
+  "contexts": [
+    "productConsoltant-followup"
+  ],
+  "responses": [
+    {
+      "resetContexts": false,
+      "action": "productConsoltant.productConsoltant-custom",
+      "affectedContexts": [],
+      "parameters": [
+        {
+          "id": "70d1f8f6-858f-4a2b-a9e9-d9ed14a2ec07",
+          "name": "Product_No_",
+          "required": true,
+          "dataType": "@Product_No_",
+          "value": "$Product_No_",
+          "defaultValue": "",
+          "isList": true,
+          "prompts": [
+            {
+              "lang": "th",
+              "value": "ลูกค้าสอบถามสีของรหัสสินค้าอะไรหรือคะ?"
+            }
+          ],
+          "promptMessages": [],
+          "noMatchPromptMessages": [],
+          "noInputPromptMessages": [],
+          "outputDialogContexts": []
+        },
+        {
+          "id": "39dd12ae-4348-46d8-8251-a14294d09618",
+          "name": "Question",
+          "required": false,
+          "dataType": "@Question",
+          "value": "$Question",
+          "defaultValue": "",
+          "isList": true,
+          "prompts": [],
+          "promptMessages": [],
+          "noMatchPromptMessages": [],
+          "noInputPromptMessages": [],
+          "outputDialogContexts": []
+        }
+      ],
+      "messages": [
+        {
+          "type": "0",
+          "title": "",
+          "textToSpeech": "",
+          "lang": "th",
+          "speech": [
+            "$Product_No_ มี $Question"
+          ],
+          "condition": ""
+        },
+        {
+          "type": "0",
+          "title": "",
+          "textToSpeech": "",
+          "lang": "en",
+          "condition": ""
+        }
+      ],
+      "speech": []
+    }
+  ],
+  "priority": 500000,
+  "webhookUsed": false,
+  "webhookForSlotFilling": false,
+  "fallbackIntent": false,
+  "events": [],
+  "conditionalResponses": [],
+  "condition": "",
+  "conditionalFollowupEvents": []
+}

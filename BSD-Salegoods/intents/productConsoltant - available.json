@@ -1,0 +1,75 @@
+{
+  "id": "f8411386-2db5-4b0b-b530-0197b841c4e3",
+  "parentId": "7b41b5f4-147b-4ba6-ac7a-0f32c043e69b",
+  "rootParentId": "7b41b5f4-147b-4ba6-ac7a-0f32c043e69b",
+  "name": "productConsoltant - available",
+  "auto": true,
+  "contexts": [
+    "productConsoltant-followup"
+  ],
+  "responses": [
+    {
+      "resetContexts": false,
+      "action": "productConsoltant.productConsoltant-custom",
+      "affectedContexts": [],
+      "parameters": [
+        {
+          "id": "6b4f92c1-a865-4ab6-8425-7c6249061d15",
+          "name": "product_no_",
+          "required": false,
+          "dataType": "@Product_No_",
+          "value": "$product_no_",
+          "defaultValue": "",
+          "isList": true,
+          "prompts": [],
+          "promptMessages": [],
+          "noMatchPromptMessages": [],
+          "noInputPromptMessages": [],
+          "outputDialogContexts": []
+        },
+        {
+          "id": "0eae0940-17e0-4ed2-98dd-6c16c91ef131",
+          "name": "question",
+          "required": false,
+          "dataType": "@Question",
+          "value": "$question",
+          "defaultValue": "",
+          "isList": true,
+          "prompts": [],
+          "promptMessages": [],
+          "noMatchPromptMessages": [],
+          "noInputPromptMessages": [],
+          "outputDialogContexts": []
+        }
+      ],
+      "messages": [
+        {
+          "type": "0",
+          "title": "",
+          "textToSpeech": "",
+          "lang": "th",
+          "speech": [
+            "$product_no_ มีสินค้าค่ะ"
+          ],
+          "condition": ""
+        },
+        {
+          "type": "0",
+          "title": "",
+          "textToSpeech": "",
+          "lang": "en",
+          "condition": ""
+        }
+      ],
+      "speech": []
+    }
+  ],
+  "priority": 500000,
+  "webhookUsed": false,
+  "webhookForSlotFilling": false,
+  "fallbackIntent": false,
+  "events": [],
+  "conditionalResponses": [],
+  "condition": "",
+  "conditionalFollowupEvents": []
+}

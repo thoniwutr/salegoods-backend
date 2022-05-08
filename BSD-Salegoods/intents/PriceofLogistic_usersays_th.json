@@ -1,0 +1,32 @@
+[
+  {
+    "id": "9c7fbd2c-2902-41a5-bc56-75647a02a392",
+    "data": [
+      {
+        "text": "ค่าส่งกั่บาท",
+        "userDefined": false
+      }
+    ],
+    "isTemplate": false,
+    "count": 0,
+    "lang": "th",
+    "updated": 0
+  },
+  {
+    "id": "1eb0065c-f5cb-402f-98ba-d1dae1727aef",
+    "data": [
+      {
+        "text": "ค่าส่ง",
+        "userDefined": false
+      },
+      {
+        "text": "กี่บาท",
+        "userDefined": false
+      }
+    ],
+    "isTemplate": false,
+    "count": 0,
+    "lang": "th",
+    "updated": 0
+  }
+]

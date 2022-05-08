@@ -1,0 +1,93 @@
+{
+  "id": "ee2fd8c7-6c2d-48db-820d-1a241a975bec",
+  "name": "OrderProduct",
+  "auto": true,
+  "contexts": [],
+  "responses": [
+    {
+      "resetContexts": false,
+      "action": "OrderProduct.OrderProduct-custom",
+      "affectedContexts": [
+        {
+          "name": "OrderProduct-followup",
+          "lifespan": 2
+        }
+      ],
+      "parameters": [
+        {
+          "id": "798db186-09d3-4068-92dc-429f9b08174f",
+          "name": "Product_No_",
+          "required": true,
+          "dataType": "@Product_No_",
+          "value": "$Product_No_",
+          "defaultValue": "",
+          "isList": true,
+          "prompts": [
+            {
+              "lang": "th",
+              "value": "โปรดพิมพ์รหัสสินค้า"
+            }
+          ],
+          "promptMessages": [],
+          "noMatchPromptMessages": [],
+          "noInputPromptMessages": [],
+          "outputDialogContexts": []
+        },
+        {
+          "id": "944ed51f-3322-4ef0-9248-19c253bf2c46",
+          "name": "number",
+          "required": false,
+          "dataType": "@sys.number",
+          "value": "$number",
+          "defaultValue": "",
+          "isList": true,
+          "prompts": [
+            {
+              "lang": "th",
+              "value": "โปรดพิมพ์จำนวนสินค้า(ตัวเลข)"
+            }
+          ],
+          "promptMessages": [],
+          "noMatchPromptMessages": [],
+          "noInputPromptMessages": [],
+          "outputDialogContexts": []
+        },
+        {
+          "id": "1d35b702-d6e6-426c-8322-6707b8967f5d",
+          "name": "Wording",
+          "required": false,
+          "dataType": "",
+          "value": "CF",
+          "defaultValue": "",
+          "isList": true,
+          "prompts": [],
+          "promptMessages": [],
+          "noMatchPromptMessages": [],
+          "noInputPromptMessages": [],
+          "outputDialogContexts": []
+        }
+      ],
+      "messages": [
+        {
+          "type": "0",
+          "title": "",
+          "textToSpeech": "",
+          "lang": "th",
+          "speech": [
+            "บัญทึกรหัสสินค้า $Product_No_ เรียบร้อย"
+          ],
+          "condition": ""
+        }
+      ],
+      "speech": []
+    }
+  ],
+  "priority": 500000,
+  "webhookUsed": true,
+  "webhookForSlotFilling": false,
+  "fallbackIntent": false,
+  "events": [],
+  "conditionalResponses": [],
+  "condition": "",
+  "conditionalFollowupEvents": []
+}

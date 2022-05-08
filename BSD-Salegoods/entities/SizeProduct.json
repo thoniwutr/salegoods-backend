@@ -1,0 +1,9 @@
+{
+  "id": "fe96c7e8-e150-40f0-9878-8111cb19c4b4",
+  "name": "SizeProduct",
+  "isOverridable": true,
+  "isEnum": false,
+  "isRegexp": false,
+  "automatedExpansion": true,
+  "allowFuzzyExtraction": true
+}

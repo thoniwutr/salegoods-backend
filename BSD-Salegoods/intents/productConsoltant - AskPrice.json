@@ -1,0 +1,80 @@
+{
+  "id": "a760a5d4-0004-44cd-b323-75cf4a6abb5d",
+  "parentId": "7b41b5f4-147b-4ba6-ac7a-0f32c043e69b",
+  "rootParentId": "7b41b5f4-147b-4ba6-ac7a-0f32c043e69b",
+  "name": "productConsoltant - AskPrice",
+  "auto": true,
+  "contexts": [
+    "productConsoltant-followup"
+  ],
+  "responses": [
+    {
+      "resetContexts": false,
+      "action": "productConsoltant.productConsoltant-custom",
+      "affectedContexts": [],
+      "parameters": [
+        {
+          "id": "22badb6e-0f19-4d90-80d0-edbf541f462f",
+          "name": "Product_No_",
+          "required": true,
+          "dataType": "@Product_No_",
+          "value": "$Product_No_",
+          "defaultValue": "",
+          "isList": true,
+          "prompts": [
+            {
+              "lang": "th",
+              "value": "ราคาที่ลูกค้าสนใจเป็นสินค้ารหัสอะไรคะ?"
+            }
+          ],
+          "promptMessages": [],
+          "noMatchPromptMessages": [],
+          "noInputPromptMessages": [],
+          "outputDialogContexts": []
+        },
+        {
+          "id": "86923684-5eb4-4e91-a8e5-7b30291a4acf",
+          "name": "Question",
+          "required": false,
+          "dataType": "@Question",
+          "value": "$Question",
+          "defaultValue": "",
+          "isList": true,
+          "prompts": [],
+          "promptMessages": [],
+          "noMatchPromptMessages": [],
+          "noInputPromptMessages": [],
+          "outputDialogContexts": []
+        }
+      ],
+      "messages": [
+        {
+          "type": "0",
+          "title": "",
+          "textToSpeech": "",
+          "lang": "th",
+          "speech": [
+            "$Product_No_ ราคา $Question บาท"
+          ],
+          "condition": ""
+        },
+        {
+          "type": "0",
+          "title": "",
+          "textToSpeech": "",
+          "lang": "en",
+          "condition": ""
+        }
+      ],
+      "speech": []
+    }
+  ],
+  "priority": 500000,
+  "webhookUsed": false,
+  "webhookForSlotFilling": false,
+  "fallbackIntent": false,
+  "events": [],
+  "conditionalResponses": [],
+  "condition": "",
+  "conditionalFollowupEvents": []
+}

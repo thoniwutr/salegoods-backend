@@ -1,0 +1,144 @@
+[
+  {
+    "id": "dd120812-c131-4442-87a3-cd604788f7f5",
+    "data": [
+      {
+        "text": "do ",
+        "userDefined": false
+      },
+      {
+        "text": "it",
+        "userDefined": false
+      },
+      {
+        "text": " later",
+        "userDefined": false
+      }
+    ],
+    "isTemplate": false,
+    "count": 0,
+    "lang": "en",
+    "updated": 0
+  },
+  {
+    "id": "546465f9-9b4e-408e-b8a4-445f5e4ed1c3",
+    "data": [
+      {
+        "text": "not at the moment",
+        "userDefined": false
+      }
+    ],
+    "isTemplate": false,
+    "count": 0,
+    "lang": "en",
+    "updated": 0
+  },
+  {
+    "id": "ffb94d88-9d8d-4338-8707-0b1a48e27fe5",
+    "data": [
+      {
+        "text": "I said later",
+        "userDefined": false
+      }
+    ],
+    "isTemplate": false,
+    "count": 0,
+    "lang": "en",
+    "updated": 0
+  },
+  {
+    "id": "84aaa90c-39fb-4b31-a2fc-cb14ed944170",
+    "data": [
+      {
+        "text": "not yet",
+        "userDefined": false
+      }
+    ],
+    "isTemplate": false,
+    "count": 2,
+    "lang": "en",
+    "updated": 0
+  },
+  {
+    "id": "8ec14ddb-6f32-4d8c-9a0d-fb7f06e9da94",
+    "data": [
+      {
+        "text": "ask me later",
+        "userDefined": false
+      }
+    ],
+    "isTemplate": false,
+    "count": 1,
+    "lang": "en",
+    "updated": 0
+  },
+  {
+    "id": "98e60739-a890-4c67-ba8e-e131712315a0",
+    "data": [
+      {
+        "text": "not ",
+        "userDefined": false
+      },
+      {
+        "text": "right now",
+        "userDefined": true
+      }
+    ],
+    "isTemplate": false,
+    "count": 2,
+    "lang": "en",
+    "updated": 0
+  },
+  {
+    "id": "d00b3319-2169-458a-b3ae-988e4c4df86f",
+    "data": [
+      {
+        "text": "next time",
+        "userDefined": false
+      }
+    ],
+    "isTemplate": false,
+    "count": 1,
+    "lang": "en",
+    "updated": 0
+  },
+  {
+    "id": "e5f15e53-3c67-4b88-9ccd-da8491ab7832",
+    "data": [
+      {
+        "text": "not at this time",
+        "userDefined": false
+      }
+    ],
+    "isTemplate": false,
+    "count": 1,
+    "lang": "en",
+    "updated": 0
+  },
+  {
+    "id": "743e00c8-e5ae-4595-a504-d626b7c798c9",
+    "data": [
+      {
+        "text": "later",
+        "userDefined": false
+      }
+    ],
+    "isTemplate": false,
+    "count": 2,
+    "lang": "en",
+    "updated": 0
+  },
+  {
+    "id": "8ea984c9-5191-4361-a63c-386249db69da",
+    "data": [
+      {
+        "text": "some other time",
+        "userDefined": false
+      }
+    ],
+    "isTemplate": false,
+    "count": 0,
+    "lang": "en",
+    "updated": 0
+  }
+]

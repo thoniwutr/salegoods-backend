@@ -1,0 +1,272 @@
+[
+  {
+    "id": "9e200bea-dcb1-4e91-b183-b9cb5f220a4a",
+    "data": [
+      {
+        "text": "เอว สะโพก เท่าไหร่คะ",
+        "meta": "@Question",
+        "alias": "question",
+        "userDefined": false
+      }
+    ],
+    "isTemplate": false,
+    "count": 0,
+    "lang": "th",
+    "updated": 0
+  },
+  {
+    "id": "4129e1ab-70d3-40ed-a878-1897bf6217a0",
+    "data": [
+      {
+        "text": "ยังมี",
+        "userDefined": false
+      },
+      {
+        "text": "อยู่ไหมค่ะ",
+        "meta": "@Question",
+        "alias": "question",
+        "userDefined": false
+      }
+    ],
+    "isTemplate": false,
+    "count": 0,
+    "lang": "th",
+    "updated": 0
+  },
+  {
+    "id": "a461c1ea-9de4-41fa-bc89-9e6b45d7cdce",
+    "data": [
+      {
+        "text": "มีไซต์",
+        "meta": "@Question",
+        "alias": "question",
+        "userDefined": false
+      },
+      {
+        "text": "แอลไหม",
+        "userDefined": false
+      }
+    ],
+    "isTemplate": false,
+    "count": 0,
+    "lang": "th",
+    "updated": 0
+  },
+  {
+    "id": "01c4b06a-7bed-445a-bfbc-efdaa30bc818",
+    "data": [
+      {
+        "text": "มี ",
+        "userDefined": false
+      },
+      {
+        "text": "size",
+        "meta": "@Question",
+        "alias": "question",
+        "userDefined": false
+      },
+      {
+        "text": " L ไหม",
+        "userDefined": false
+      }
+    ],
+    "isTemplate": false,
+    "count": 0,
+    "lang": "th",
+    "updated": 0
+  },
+  {
+    "id": "0c6e55e7-0c7e-4942-9235-7d8d70e63ae9",
+    "data": [
+      {
+        "text": "ราค่า",
+        "meta": "@Question",
+        "alias": "question",
+        "userDefined": false
+      },
+      {
+        "text": "เท่าไร",
+        "userDefined": false
+      }
+    ],
+    "isTemplate": false,
+    "count": 0,
+    "lang": "th",
+    "updated": 0
+  },
+  {
+    "id": "8c88fecf-a2f4-4e9c-8e03-52cb763244f9",
+    "data": [
+      {
+        "text": "ราคา",
+        "meta": "@Question",
+        "alias": "question",
+        "userDefined": false
+      },
+      {
+        "text": "เท่าไร",
+        "userDefined": false
+      }
+    ],
+    "isTemplate": false,
+    "count": 0,
+    "lang": "th",
+    "updated": 0
+  },
+  {
+    "id": "d188459c-f0ff-4ca3-b7d1-8d4a40ae4c8d",
+    "data": [
+      {
+        "text": "มี",
+        "userDefined": false
+      },
+      {
+        "text": "size",
+        "meta": "@Question",
+        "alias": "question",
+        "userDefined": false
+      },
+      {
+        "text": "อะไรบ้าง",
+        "userDefined": false
+      }
+    ],
+    "isTemplate": false,
+    "count": 0,
+    "lang": "th",
+    "updated": 0
+  },
+  {
+    "id": "91704491-4826-4698-8429-b51e75afd738",
+    "data": [
+      {
+        "text": "มี",
+        "userDefined": false
+      },
+      {
+        "text": "ขนาดใหญ่",
+        "meta": "@Question",
+        "alias": "question",
+        "userDefined": false
+      },
+      {
+        "text": "ไหม",
+        "userDefined": false
+      }
+    ],
+    "isTemplate": false,
+    "count": 0,
+    "lang": "th",
+    "updated": 0
+  },
+  {
+    "id": "aa5b2b38-49cb-41ea-852d-8bbb60c75f8c",
+    "data": [
+      {
+        "text": "มี",
+        "userDefined": false
+      },
+      {
+        "text": "ขนาดเล็ก",
+        "meta": "@Question",
+        "alias": "question",
+        "userDefined": false
+      },
+      {
+        "text": "ไหม",
+        "userDefined": false
+      }
+    ],
+    "isTemplate": false,
+    "count": 0,
+    "lang": "th",
+    "updated": 0
+  },
+  {
+    "id": "f55c2e83-8896-4beb-be17-4fb852f1c42e",
+    "data": [
+      {
+        "text": "มีสี",
+        "meta": "@Question",
+        "alias": "question",
+        "userDefined": false
+      },
+      {
+        "text": "ขาวไหมคะ",
+        "userDefined": false
+      }
+    ],
+    "isTemplate": false,
+    "count": 0,
+    "lang": "th",
+    "updated": 0
+  },
+  {
+    "id": "2b03af8f-cf0c-4c41-aa3b-95b7418adb58",
+    "data": [
+      {
+        "text": "มีสินค้า",
+        "meta": "@Question",
+        "alias": "question",
+        "userDefined": false
+      },
+      {
+        "text": "ไหม",
+        "userDefined": false
+      }
+    ],
+    "isTemplate": false,
+    "count": 0,
+    "lang": "th",
+    "updated": 0
+  },
+  {
+    "id": "17d6e96e-e65f-4d8a-8fe8-6646f42d2472",
+    "data": [
+      {
+        "text": "มีสินค้าหรือไม่",
+        "meta": "@Question",
+        "alias": "question",
+        "userDefined": false
+      }
+    ],
+    "isTemplate": false,
+    "count": 0,
+    "lang": "th",
+    "updated": 0
+  },
+  {
+    "id": "d2e69ae0-f3f4-4fe0-a4ea-96b3ca4e7c63",
+    "data": [
+      {
+        "text": "ขนาด",
+        "meta": "@Question",
+        "alias": "question",
+        "userDefined": false
+      },
+      {
+        "text": "เท่าไร",
+        "userDefined": false
+      }
+    ],
+    "isTemplate": false,
+    "count": 2,
+    "lang": "th",
+    "updated": 0
+  },
+  {
+    "id": "eb45a5ea-f635-42ed-ab93-d84ea1402624",
+    "data": [
+      {
+        "text": "มีสีอะไรบ้าง",
+        "meta": "@Question",
+        "alias": "question",
+        "userDefined": false
+      }
+    ],
+    "isTemplate": false,
+    "count": 0,
+    "lang": "th",
+    "updated": 0
+  }
+]

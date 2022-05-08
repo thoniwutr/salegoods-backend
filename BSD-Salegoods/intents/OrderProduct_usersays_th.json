@@ -1,0 +1,779 @@
+[
+  {
+    "id": "ec337b51-d191-4103-a22a-e8cf27ef1ac7",
+    "data": [
+      {
+        "text": "cf ",
+        "userDefined": false
+      },
+      {
+        "text": "a1",
+        "meta": "@Product_No_",
+        "alias": "Product_No_",
+        "userDefined": false
+      },
+      {
+        "text": " ",
+        "userDefined": false
+      },
+      {
+        "text": "a2",
+        "meta": "@Product_No_",
+        "alias": "Product_No_",
+        "userDefined": false
+      },
+      {
+        "text": " ",
+        "userDefined": false
+      },
+      {
+        "text": "a3",
+        "meta": "@Product_No_",
+        "alias": "Product_No_",
+        "userDefined": false
+      },
+      {
+        "text": " ",
+        "userDefined": false
+      },
+      {
+        "text": "a4",
+        "meta": "@Product_No_",
+        "alias": "Product_No_",
+        "userDefined": true
+      },
+      {
+        "text": " ",
+        "userDefined": false
+      },
+      {
+        "text": "a5",
+        "meta": "@Product_No_",
+        "alias": "Product_No_",
+        "userDefined": true
+      },
+      {
+        "text": " ",
+        "userDefined": false
+      },
+      {
+        "text": "a6",
+        "meta": "@Product_No_",
+        "alias": "Product_No_",
+        "userDefined": true
+      },
+      {
+        "text": " ",
+        "userDefined": false
+      },
+      {
+        "text": "a7",
+        "meta": "@Product_No_",
+        "alias": "Product_No_",
+        "userDefined": true
+      },
+      {
+        "text": " ",
+        "userDefined": false
+      },
+      {
+        "text": "a8",
+        "meta": "@Product_No_",
+        "alias": "Product_No_",
+        "userDefined": true
+      },
+      {
+        "text": " ",
+        "userDefined": false
+      },
+      {
+        "text": "a9",
+        "meta": "@Product_No_",
+        "alias": "Product_No_",
+        "userDefined": true
+      },
+      {
+        "text": " ",
+        "userDefined": false
+      },
+      {
+        "text": "a10",
+        "meta": "@Product_No_",
+        "alias": "Product_No_",
+        "userDefined": true
+      }
+    ],
+    "isTemplate": false,
+    "count": 0,
+    "lang": "th",
+    "updated": 0
+  },
+  {
+    "id": "dba9278f-6d9c-450d-8fe0-585b0692e674",
+    "data": [
+      {
+        "text": "อตยA1",
+        "meta": "@Product_No_",
+        "alias": "Product_No_",
+        "userDefined": false
+      }
+    ],
+    "isTemplate": false,
+    "count": 0,
+    "lang": "th",
+    "updated": 0
+  },
+  {
+    "id": "3f5ff4f3-4fc6-47ed-9a60-57b8a75f8505",
+    "data": [
+      {
+        "text": "อตย1",
+        "meta": "@Product_No_",
+        "alias": "Product_No_",
+        "userDefined": false
+      }
+    ],
+    "isTemplate": false,
+    "count": 0,
+    "lang": "th",
+    "updated": 0
+  },
+  {
+    "id": "121e9d8f-1ed8-408d-8605-15cf848ad1be",
+    "data": [
+      {
+        "text": "cf ",
+        "userDefined": false
+      },
+      {
+        "text": "w2",
+        "meta": "@Product_No_",
+        "alias": "Product_No_",
+        "userDefined": false
+      }
+    ],
+    "isTemplate": false,
+    "count": 0,
+    "lang": "th",
+    "updated": 0
+  },
+  {
+    "id": "4d4796c0-d2d6-459c-a3a2-4d25d307d7af",
+    "data": [
+      {
+        "text": "cf ",
+        "userDefined": false
+      },
+      {
+        "text": "n3",
+        "meta": "@Product_No_",
+        "alias": "Product_No_",
+        "userDefined": false
+      },
+      {
+        "text": "\u003d",
+        "userDefined": false
+      },
+      {
+        "text": "1",
+        "meta": "@sys.number",
+        "alias": "number",
+        "userDefined": false
+      },
+      {
+        "text": " ",
+        "userDefined": false
+      },
+      {
+        "text": "n4",
+        "meta": "@Product_No_",
+        "alias": "Product_No_",
+        "userDefined": false
+      },
+      {
+        "text": "\u003d",
+        "userDefined": false
+      },
+      {
+        "text": "1",
+        "meta": "@sys.number",
+        "alias": "number",
+        "userDefined": false
+      }
+    ],
+    "isTemplate": false,
+    "count": 0,
+    "lang": "th",
+    "updated": 0
+  },
+  {
+    "id": "428460a5-2677-48f6-b197-7b6aaf7a9b25",
+    "data": [
+      {
+        "text": "M3",
+        "meta": "@Product_No_",
+        "alias": "Product_No_",
+        "userDefined": false
+      }
+    ],
+    "isTemplate": false,
+    "count": 0,
+    "lang": "th",
+    "updated": 0
+  },
+  {
+    "id": "3a1cbb6d-3e92-4c96-8336-580c53f5d9b9",
+    "data": [
+      {
+        "text": "M1",
+        "meta": "@Product_No_",
+        "alias": "Product_No_",
+        "userDefined": false
+      },
+      {
+        "text": "\u003d",
+        "userDefined": false
+      },
+      {
+        "text": "2",
+        "meta": "@sys.number",
+        "alias": "number",
+        "userDefined": false
+      }
+    ],
+    "isTemplate": false,
+    "count": 0,
+    "lang": "th",
+    "updated": 0
+  },
+  {
+    "id": "d6c1abd7-1eb3-47d5-a6f3-a29d5f5d8b0a",
+    "data": [
+      {
+        "text": "H12",
+        "meta": "@Product_No_",
+        "alias": "Product_No_",
+        "userDefined": false
+      },
+      {
+        "text": "\u003d",
+        "userDefined": false
+      },
+      {
+        "text": "1",
+        "meta": "@sys.number",
+        "alias": "number",
+        "userDefined": false
+      },
+      {
+        "text": "\n ",
+        "userDefined": false
+      },
+      {
+        "text": "H13",
+        "meta": "@Product_No_",
+        "alias": "Product_No_",
+        "userDefined": true
+      },
+      {
+        "text": "\u003d",
+        "userDefined": false
+      },
+      {
+        "text": "1",
+        "meta": "@sys.number",
+        "alias": "number",
+        "userDefined": false
+      },
+      {
+        "text": "\n ",
+        "userDefined": false
+      },
+      {
+        "text": "H14",
+        "meta": "@Product_No_",
+        "alias": "Product_No_",
+        "userDefined": true
+      },
+      {
+        "text": "\u003d",
+        "userDefined": false
+      },
+      {
+        "text": "1",
+        "meta": "@sys.number",
+        "alias": "number",
+        "userDefined": false
+      }
+    ],
+    "isTemplate": false,
+    "count": 0,
+    "lang": "th",
+    "updated": 0
+  },
+  {
+    "id": "a567a57a-0a8a-4879-a3fd-96163910c68c",
+    "data": [
+      {
+        "text": "H13",
+        "meta": "@Product_No_",
+        "alias": "Product_No_",
+        "userDefined": false
+      },
+      {
+        "text": "\u003d",
+        "userDefined": false
+      },
+      {
+        "text": "3",
+        "meta": "@sys.number",
+        "alias": "number",
+        "userDefined": false
+      }
+    ],
+    "isTemplate": false,
+    "count": 0,
+    "lang": "th",
+    "updated": 0
+  },
+  {
+    "id": "73747a64-0616-490b-adc0-85c063f4b52e",
+    "data": [
+      {
+        "text": "H21",
+        "meta": "@Product_No_",
+        "alias": "Product_No_",
+        "userDefined": false
+      }
+    ],
+    "isTemplate": false,
+    "count": 0,
+    "lang": "th",
+    "updated": 0
+  },
+  {
+    "id": "877fb8c9-3ebf-43dd-963e-5ad91f60960d",
+    "data": [
+      {
+        "text": "H13",
+        "meta": "@Product_No_",
+        "alias": "Product_No_",
+        "userDefined": false
+      },
+      {
+        "text": "\u003d",
+        "userDefined": false
+      },
+      {
+        "text": "4",
+        "meta": "@sys.number",
+        "alias": "number",
+        "userDefined": false
+      }
+    ],
+    "isTemplate": false,
+    "count": 0,
+    "lang": "th",
+    "updated": 0
+  },
+  {
+    "id": "9f22389d-1f9a-417a-a980-8a0fa51b5175",
+    "data": [
+      {
+        "text": "H3",
+        "meta": "@Product_No_",
+        "alias": "Product_No_",
+        "userDefined": false
+      }
+    ],
+    "isTemplate": false,
+    "count": 0,
+    "lang": "th",
+    "updated": 0
+  },
+  {
+    "id": "d798e4d1-40c3-4b72-ba88-cda1a1715660",
+    "data": [
+      {
+        "text": "เอา ",
+        "userDefined": false
+      },
+      {
+        "text": "a1",
+        "meta": "@Product_No_",
+        "alias": "Product_No_",
+        "userDefined": false
+      }
+    ],
+    "isTemplate": false,
+    "count": 0,
+    "lang": "th",
+    "updated": 0
+  },
+  {
+    "id": "f1db0051-ae78-4cc8-a915-a6228468c365",
+    "data": [
+      {
+        "text": "CF",
+        "userDefined": false
+      },
+      {
+        "text": " ",
+        "userDefined": false
+      },
+      {
+        "text": "A1",
+        "meta": "@Product_No_",
+        "alias": "Product_No_",
+        "userDefined": false
+      },
+      {
+        "text": " ",
+        "userDefined": false
+      },
+      {
+        "text": "1",
+        "meta": "@sys.number",
+        "alias": "number",
+        "userDefined": false
+      }
+    ],
+    "isTemplate": false,
+    "count": 0,
+    "lang": "th",
+    "updated": 0
+  },
+  {
+    "id": "b0e645ba-e7b8-45e0-adde-cf1a19f1fbef",
+    "data": [
+      {
+        "text": "CF",
+        "userDefined": false
+      },
+      {
+        "text": " ",
+        "userDefined": false
+      },
+      {
+        "text": "A1",
+        "meta": "@Product_No_",
+        "alias": "Product_No_",
+        "userDefined": false
+      },
+      {
+        "text": " ",
+        "userDefined": false
+      },
+      {
+        "text": "1",
+        "meta": "@sys.number",
+        "alias": "number",
+        "userDefined": false
+      },
+      {
+        "text": "อัน",
+        "userDefined": false
+      }
+    ],
+    "isTemplate": false,
+    "count": 0,
+    "lang": "th",
+    "updated": 0
+  },
+  {
+    "id": "f283a321-34ff-45ee-99bd-02d07dbf2dec",
+    "data": [
+      {
+        "text": "CF",
+        "userDefined": false
+      },
+      {
+        "text": " ",
+        "userDefined": false
+      },
+      {
+        "text": "A1",
+        "meta": "@Product_No_",
+        "alias": "Product_No_",
+        "userDefined": false
+      },
+      {
+        "text": " ",
+        "userDefined": false
+      },
+      {
+        "text": "1",
+        "meta": "@sys.number",
+        "alias": "number",
+        "userDefined": false
+      },
+      {
+        "text": "ชิ้น",
+        "userDefined": false
+      }
+    ],
+    "isTemplate": false,
+    "count": 1,
+    "lang": "th",
+    "updated": 0
+  },
+  {
+    "id": "bb593c8d-dda8-40bb-8881-4f5347cbe285",
+    "data": [
+      {
+        "text": "CF",
+        "userDefined": false
+      },
+      {
+        "text": " ",
+        "userDefined": false
+      },
+      {
+        "text": "A1",
+        "meta": "@Product_No_",
+        "alias": "Product_No_",
+        "userDefined": false
+      }
+    ],
+    "isTemplate": false,
+    "count": 0,
+    "lang": "th",
+    "updated": 0
+  },
+  {
+    "id": "bce140b1-874d-4ff3-98d2-49ec523caf71",
+    "data": [
+      {
+        "text": "สั่งสินค้า ",
+        "userDefined": false
+      },
+      {
+        "text": "A1",
+        "meta": "@Product_No_",
+        "alias": "Product_No_",
+        "userDefined": false
+      },
+      {
+        "text": " ",
+        "userDefined": false
+      },
+      {
+        "text": "1",
+        "meta": "@sys.number",
+        "alias": "number",
+        "userDefined": false
+      },
+      {
+        "text": " ",
+        "userDefined": false
+      },
+      {
+        "text": "ชิ้น",
+        "userDefined": false
+      }
+    ],
+    "isTemplate": false,
+    "count": 0,
+    "lang": "th",
+    "updated": 0
+  },
+  {
+    "id": "864554ff-1f1b-4f06-b20f-446cb0e7bec9",
+    "data": [
+      {
+        "text": "สั่งสินค้า ",
+        "userDefined": false
+      },
+      {
+        "text": "A1",
+        "meta": "@Product_No_",
+        "alias": "Product_No_",
+        "userDefined": false
+      },
+      {
+        "text": " ",
+        "userDefined": false
+      },
+      {
+        "text": "1",
+        "meta": "@sys.number",
+        "alias": "number",
+        "userDefined": false
+      },
+      {
+        "text": "ชิ้น",
+        "userDefined": false
+      }
+    ],
+    "isTemplate": false,
+    "count": 0,
+    "lang": "th",
+    "updated": 0
+  },
+  {
+    "id": "d1deacb7-b6bf-4c06-bc61-a806c5e4e0a0",
+    "data": [
+      {
+        "text": "สั่งสินค้า ",
+        "userDefined": false
+      },
+      {
+        "text": "A1",
+        "meta": "@Product_No_",
+        "alias": "Product_No_",
+        "userDefined": false
+      },
+      {
+        "text": " ",
+        "userDefined": false
+      },
+      {
+        "text": "1",
+        "meta": "@sys.number",
+        "alias": "number",
+        "userDefined": false
+      },
+      {
+        "text": "อัน",
+        "userDefined": false
+      }
+    ],
+    "isTemplate": false,
+    "count": 0,
+    "lang": "th",
+    "updated": 0
+  },
+  {
+    "id": "a240b61f-4b9c-4b77-97bb-d95b6894c433",
+    "data": [
+      {
+        "text": "สั่งสินค้า ",
+        "userDefined": false
+      },
+      {
+        "text": "A1",
+        "meta": "@Product_No_",
+        "alias": "Product_No_",
+        "userDefined": true
+      },
+      {
+        "text": " ",
+        "userDefined": false
+      },
+      {
+        "text": "1",
+        "meta": "@sys.number",
+        "alias": "number",
+        "userDefined": false
+      },
+      {
+        "text": " อัน",
+        "userDefined": false
+      }
+    ],
+    "isTemplate": false,
+    "count": 0,
+    "lang": "th",
+    "updated": 0
+  },
+  {
+    "id": "2e668e01-f218-46db-9fd0-f8106f4674b7",
+    "data": [
+      {
+        "text": "สั่งสินค้า ",
+        "userDefined": false
+      },
+      {
+        "text": "A1",
+        "meta": "@Product_No_",
+        "alias": "Product_No_",
+        "userDefined": true
+      },
+      {
+        "text": " ",
+        "userDefined": false
+      },
+      {
+        "text": "1",
+        "meta": "@sys.number",
+        "alias": "number",
+        "userDefined": false
+      }
+    ],
+    "isTemplate": false,
+    "count": 0,
+    "lang": "th",
+    "updated": 0
+  },
+  {
+    "id": "ac06a508-90bc-42d4-8b81-022316cf3b0e",
+    "data": [
+      {
+        "text": "สั่งสินค้า ",
+        "userDefined": false
+      },
+      {
+        "text": "A1",
+        "meta": "@Product_No_",
+        "alias": "Product_No_",
+        "userDefined": true
+      }
+    ],
+    "isTemplate": false,
+    "count": 0,
+    "lang": "th",
+    "updated": 0
+  },
+  {
+    "id": "bb7de9f4-882c-464b-94a8-acc32032f6c2",
+    "data": [
+      {
+        "text": "สั่งสินค้า",
+        "userDefined": false
+      }
+    ],
+    "isTemplate": false,
+    "count": 0,
+    "lang": "th",
+    "updated": 0
+  },
+  {
+    "id": "ddd70de2-008f-47c6-a3cd-bcf821e94bda",
+    "data": [
+      {
+        "text": "เอา",
+        "userDefined": false
+      }
+    ],
+    "isTemplate": false,
+    "count": 2,
+    "lang": "th",
+    "updated": 0
+  },
+  {
+    "id": "4b409017-b31a-486e-873d-34ebb8100f93",
+    "data": [
+      {
+        "text": "สั่งของ",
+        "userDefined": false
+      }
+    ],
+    "isTemplate": false,
+    "count": 0,
+    "lang": "th",
+    "updated": 0
+  },
+  {
+    "id": "734e65eb-883b-4c46-a399-8cb9a1013f9b",
+    "data": [
+      {
+        "text": "ต้องการสั่งสินค้า",
+        "userDefined": false
+      }
+    ],
+    "isTemplate": false,
+    "count": 0,
+    "lang": "th",
+    "updated": 0
+  }
+]

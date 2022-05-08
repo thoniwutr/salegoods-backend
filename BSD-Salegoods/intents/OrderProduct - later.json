@@ -1,0 +1,47 @@
+{
+  "id": "ab8d54a8-def0-46d2-af3f-6c0f72474239",
+  "parentId": "ee2fd8c7-6c2d-48db-820d-1a241a975bec",
+  "rootParentId": "ee2fd8c7-6c2d-48db-820d-1a241a975bec",
+  "name": "OrderProduct - later",
+  "auto": true,
+  "contexts": [
+    "OrderProduct-followup"
+  ],
+  "responses": [
+    {
+      "resetContexts": false,
+      "action": "OrderProduct.OrderProduct-later",
+      "affectedContexts": [],
+      "parameters": [],
+      "messages": [
+        {
+          "type": "0",
+          "title": "",
+          "textToSpeech": "",
+          "lang": "th",
+          "speech": [
+            "นั้นไว้คราวหน้าเชิญชมสินค้ากับเราใหม่ สวัสดี"
+          ],
+          "condition": ""
+        },
+        {
+          "type": "0",
+          "title": "",
+          "textToSpeech": "",
+          "lang": "en",
+          "condition": ""
+        }
+      ],
+      "speech": []
+    }
+  ],
+  "priority": 500000,
+  "webhookUsed": false,
+  "webhookForSlotFilling": false,
+  "fallbackIntent": false,
+  "events": [],
+  "conditionalResponses": [],
+  "condition": "",
+  "conditionalFollowupEvents": [],
+  "endInteraction": true
+}

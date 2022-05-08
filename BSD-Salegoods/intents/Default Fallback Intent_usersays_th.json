@@ -1,0 +1,93 @@
+[
+  {
+    "id": "71f790e9-5151-4c1c-a0c5-53e7f0dbaf0e",
+    "data": [
+      {
+        "text": "ไหนเห็นแพดเลย",
+        "userDefined": false
+      }
+    ],
+    "isTemplate": false,
+    "count": 0,
+    "lang": "th",
+    "updated": 0
+  },
+  {
+    "id": "b7276740-3e55-4f13-a146-19af15a28a3b",
+    "data": [
+      {
+        "text": "เห็นค่ะ",
+        "userDefined": false
+      }
+    ],
+    "isTemplate": false,
+    "count": 0,
+    "lang": "th",
+    "updated": 0
+  },
+  {
+    "id": "8c2d8544-4342-40b7-b3d0-162cc62b5a78",
+    "data": [
+      {
+        "text": "มีของใช้ด้วยไหมคะ",
+        "userDefined": false
+      }
+    ],
+    "isTemplate": false,
+    "count": 0,
+    "lang": "th",
+    "updated": 0
+  },
+  {
+    "id": "294b093c-5ff1-42c5-8927-5b5442c0d343",
+    "data": [
+      {
+        "text": "แชร์แล้วค่ะ",
+        "userDefined": false
+      }
+    ],
+    "isTemplate": false,
+    "count": 1,
+    "lang": "th",
+    "updated": 0
+  },
+  {
+    "id": "c531994f-87f2-46a3-a2c9-8d169b8bca80",
+    "data": [
+      {
+        "text": "ขอไชรใหญ่หน่อยพี้แอน",
+        "userDefined": false
+      }
+    ],
+    "isTemplate": false,
+    "count": 0,
+    "lang": "th",
+    "updated": 0
+  },
+  {
+    "id": "e551497c-18a6-4839-b093-344ccab1ebb4",
+    "data": [
+      {
+        "text": "ขอxl",
+        "userDefined": false
+      }
+    ],
+    "isTemplate": false,
+    "count": 0,
+    "lang": "th",
+    "updated": 0
+  },
+  {
+    "id": "05d05d5b-d6b4-4bd6-a2f1-424fcac5c199",
+    "data": [
+      {
+        "text": "1",
+        "userDefined": false
+      }
+    ],
+    "isTemplate": false,
+    "count": 0,
+    "lang": "th",
+    "updated": 0
+  }
+]

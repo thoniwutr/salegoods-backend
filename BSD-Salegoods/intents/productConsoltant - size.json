@@ -1,0 +1,80 @@
+{
+  "id": "11c540dc-c593-4080-af85-7c09c1619b4c",
+  "parentId": "7b41b5f4-147b-4ba6-ac7a-0f32c043e69b",
+  "rootParentId": "7b41b5f4-147b-4ba6-ac7a-0f32c043e69b",
+  "name": "productConsoltant - size",
+  "auto": true,
+  "contexts": [
+    "productConsoltant-followup"
+  ],
+  "responses": [
+    {
+      "resetContexts": false,
+      "action": "productConsoltant.productConsoltant-custom",
+      "affectedContexts": [],
+      "parameters": [
+        {
+          "id": "a1cfc071-bfed-4ccc-bf26-27bdbb1ff291",
+          "name": "product_no_",
+          "required": true,
+          "dataType": "@Product_No_",
+          "value": "$product_no_",
+          "defaultValue": "",
+          "isList": true,
+          "prompts": [
+            {
+              "lang": "th",
+              "value": "ขนาดที่ลูกค้าสอบถามคือรหัสอะไรคะ?"
+            }
+          ],
+          "promptMessages": [],
+          "noMatchPromptMessages": [],
+          "noInputPromptMessages": [],
+          "outputDialogContexts": []
+        },
+        {
+          "id": "3639a201-a4d9-45da-a804-dbb910b67425",
+          "name": "question",
+          "required": false,
+          "dataType": "@Question",
+          "value": "$question",
+          "defaultValue": "",
+          "isList": true,
+          "prompts": [],
+          "promptMessages": [],
+          "noMatchPromptMessages": [],
+          "noInputPromptMessages": [],
+          "outputDialogContexts": []
+        }
+      ],
+      "messages": [
+        {
+          "type": "0",
+          "title": "",
+          "textToSpeech": "",
+          "lang": "th",
+          "speech": [
+            "มีขนาด $question"
+          ],
+          "condition": ""
+        },
+        {
+          "type": "0",
+          "title": "",
+          "textToSpeech": "",
+          "lang": "en",
+          "condition": ""
+        }
+      ],
+      "speech": []
+    }
+  ],
+  "priority": 500000,
+  "webhookUsed": false,
+  "webhookForSlotFilling": false,
+  "fallbackIntent": false,
+  "events": [],
+  "conditionalResponses": [],
+  "condition": "",
+  "conditionalFollowupEvents": []
+}

@@ -1,0 +1,9 @@
+{
+  "id": "81e9a11e-a78b-427e-ab9c-d5e790777284",
+  "name": "ColorProduct",
+  "isOverridable": true,
+  "isEnum": false,
+  "isRegexp": false,
+  "automatedExpansion": true,
+  "allowFuzzyExtraction": true
+}

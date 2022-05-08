@@ -1,0 +1,50 @@
+{
+  "id": "44c25404-46dd-4470-9442-e18b899e48eb",
+  "name": "Logistic",
+  "auto": true,
+  "contexts": [],
+  "responses": [
+    {
+      "resetContexts": false,
+      "action": "",
+      "affectedContexts": [],
+      "parameters": [
+        {
+          "id": "99ac06d4-59be-445e-acfa-4e8f507611b5",
+          "name": "Wording",
+          "required": false,
+          "dataType": "",
+          "value": "CALLLogistic",
+          "defaultValue": "",
+          "isList": true,
+          "prompts": [],
+          "promptMessages": [],
+          "noMatchPromptMessages": [],
+          "noInputPromptMessages": [],
+          "outputDialogContexts": []
+        }
+      ],
+      "messages": [
+        {
+          "type": "0",
+          "title": "",
+          "textToSpeech": "",
+          "lang": "th",
+          "speech": [
+            "ระยะเวลาในการส่งสินค้า 3-5 วันสำหรับภายในกทม. และ7-14วันสำหรับต่างจังหวัด"
+          ],
+          "condition": ""
+        }
+      ],
+      "speech": []
+    }
+  ],
+  "priority": 500000,
+  "webhookUsed": true,
+  "webhookForSlotFilling": false,
+  "fallbackIntent": false,
+  "events": [],
+  "conditionalResponses": [],
+  "condition": "",
+  "conditionalFollowupEvents": []
+}

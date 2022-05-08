@@ -1,0 +1,47 @@
+{
+  "id": "36f28757-1889-40fe-a763-1778f24c643a",
+  "parentId": "e8b79cf8-a157-4374-85bf-4cee12ce0720",
+  "rootParentId": "e8b79cf8-a157-4374-85bf-4cee12ce0720",
+  "name": "cancelProduct - yes",
+  "auto": true,
+  "contexts": [
+    "cancelProduct-followup"
+  ],
+  "responses": [
+    {
+      "resetContexts": false,
+      "action": "cancelProduct.cancelProduct-yes",
+      "affectedContexts": [],
+      "parameters": [],
+      "messages": [
+        {
+          "type": "0",
+          "title": "",
+          "textToSpeech": "",
+          "lang": "th",
+          "speech": [
+            "รับคำสั่งยกเลิก เรียบร้อยแล้ว"
+          ],
+          "condition": ""
+        },
+        {
+          "type": "0",
+          "title": "",
+          "textToSpeech": "",
+          "lang": "en",
+          "condition": ""
+        }
+      ],
+      "speech": []
+    }
+  ],
+  "priority": 500000,
+  "webhookUsed": false,
+  "webhookForSlotFilling": false,
+  "fallbackIntent": false,
+  "events": [],
+  "conditionalResponses": [],
+  "condition": "",
+  "conditionalFollowupEvents": [],
+  "endInteraction": true
+}

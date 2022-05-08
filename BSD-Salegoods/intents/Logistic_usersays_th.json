@@ -1,0 +1,158 @@
+[
+  {
+    "id": "b480a887-f0bc-4db3-9ca7-15360605808c",
+    "data": [
+      {
+        "text": "รอบที่แล้ว เช็คเลขได้วันไหนค่ะ",
+        "userDefined": false
+      }
+    ],
+    "isTemplate": false,
+    "count": 0,
+    "lang": "th",
+    "updated": 0
+  },
+  {
+    "id": "6c4f9fa7-c9ac-45e0-b1c9-58c6d283401e",
+    "data": [
+      {
+        "text": "ส่งของหรือยัง",
+        "userDefined": false
+      }
+    ],
+    "isTemplate": false,
+    "count": 0,
+    "lang": "th",
+    "updated": 0
+  },
+  {
+    "id": "b8f05ade-582d-47ab-acfe-0f43a8329b6b",
+    "data": [
+      {
+        "text": "สินค้าจากไลฟ์ที่แล้วส่งหรือยัง",
+        "userDefined": false
+      }
+    ],
+    "isTemplate": false,
+    "count": 0,
+    "lang": "th",
+    "updated": 0
+  },
+  {
+    "id": "be0658a2-1ae2-4a46-9551-ef63815de4a3",
+    "data": [
+      {
+        "text": "ส่งสินค้าหรือยัง",
+        "userDefined": false
+      }
+    ],
+    "isTemplate": false,
+    "count": 0,
+    "lang": "th",
+    "updated": 0
+  },
+  {
+    "id": "8ff61508-f8e6-47fe-ab68-5da6493cee2b",
+    "data": [
+      {
+        "text": "เมื่อไรจะได้ของ",
+        "userDefined": false
+      }
+    ],
+    "isTemplate": false,
+    "count": 0,
+    "lang": "th",
+    "updated": 0
+  },
+  {
+    "id": "99ddf654-333f-49b1-ba71-b7e2052306c1",
+    "data": [
+      {
+        "text": "นานมั๊ย",
+        "userDefined": false
+      }
+    ],
+    "isTemplate": false,
+    "count": 0,
+    "lang": "th",
+    "updated": 0
+  },
+  {
+    "id": "e011b47e-4b2d-4b38-a749-a995b6272344",
+    "data": [
+      {
+        "text": "ส่งสินค้านานมั๊ย",
+        "userDefined": false
+      }
+    ],
+    "isTemplate": false,
+    "count": 0,
+    "lang": "th",
+    "updated": 0
+  },
+  {
+    "id": "b164f771-259a-4477-a0df-03df6856fb88",
+    "data": [
+      {
+        "text": "นานมากไหมคะกว่าจะได้รับสินค้า",
+        "userDefined": false
+      }
+    ],
+    "isTemplate": false,
+    "count": 0,
+    "lang": "th",
+    "updated": 0
+  },
+  {
+    "id": "e0abed4c-35ce-43b3-945c-5870caf01972",
+    "data": [
+      {
+        "text": "นานมากมั้ยคะกว้าจะได้รับสินค้า",
+        "userDefined": false
+      }
+    ],
+    "isTemplate": false,
+    "count": 0,
+    "lang": "th",
+    "updated": 0
+  },
+  {
+    "id": "9c422647-a7df-4830-ad59-9d56c77471f7",
+    "data": [
+      {
+        "text": "เมื่อไรส่งสินค้า",
+        "userDefined": false
+      }
+    ],
+    "isTemplate": false,
+    "count": 0,
+    "lang": "th",
+    "updated": 0
+  },
+  {
+    "id": "c5f2840b-ffe6-484e-a1fa-66b33361b562",
+    "data": [
+      {
+        "text": "ส่งสินค้านานไหม",
+        "userDefined": false
+      }
+    ],
+    "isTemplate": false,
+    "count": 0,
+    "lang": "th",
+    "updated": 0
+  },
+  {
+    "id": "8083a425-fd2f-46c6-afc9-b1c5d7ae7ea8",
+    "data": [
+      {
+        "text": "นานไหมค่ะกว่าจะได้รับสินค้า",
+        "userDefined": false
+      }
+    ],
+    "isTemplate": false,
+    "count": 0,
+    "lang": "th",
+    "updated": 0
+  }
+]

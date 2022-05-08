@@ -1,0 +1,119 @@
+[
+  {
+    "id": "356c33fe-efa4-43cc-9a12-eb5fb8d51fa8",
+    "data": [
+      {
+        "text": "ยังไม่ใช่ตอนนี้",
+        "userDefined": true
+      }
+    ],
+    "isTemplate": false,
+    "count": 0,
+    "lang": "th",
+    "updated": 0
+  },
+  {
+    "id": "0598210e-fc45-4aa8-a5d9-53ef1da25285",
+    "data": [
+      {
+        "text": "ยังก่อน",
+        "userDefined": true
+      }
+    ],
+    "isTemplate": false,
+    "count": 0,
+    "lang": "th",
+    "updated": 0
+  },
+  {
+    "id": "c057a755-c384-4b35-8970-8724b18a4d20",
+    "data": [
+      {
+        "text": "เอาไว้ก่อน",
+        "userDefined": true
+      }
+    ],
+    "isTemplate": false,
+    "count": 0,
+    "lang": "th",
+    "updated": 0
+  },
+  {
+    "id": "6a20cef7-81e1-4c60-b9d2-e8ea944b8fe1",
+    "data": [
+      {
+        "text": "ฉันบอกว่าไว้ทำทีหลัง",
+        "userDefined": false
+      }
+    ],
+    "isTemplate": false,
+    "count": 0,
+    "lang": "th",
+    "updated": 0
+  },
+  {
+    "id": "8ea765b4-0419-45ac-be78-504c1679f146",
+    "data": [
+      {
+        "text": "ไว้คราวหลัง",
+        "userDefined": true
+      }
+    ],
+    "isTemplate": false,
+    "count": 0,
+    "lang": "th",
+    "updated": 0
+  },
+  {
+    "id": "5f3b6824-6afa-40f2-bca3-3717095b5b03",
+    "data": [
+      {
+        "text": "ไม่ทำตอนนี้นะ",
+        "userDefined": true
+      }
+    ],
+    "isTemplate": false,
+    "count": 0,
+    "lang": "th",
+    "updated": 0
+  },
+  {
+    "id": "d6a2479d-293d-495f-a009-11fbd5097e93",
+    "data": [
+      {
+        "text": "ครั้งหน้านะ",
+        "userDefined": true
+      }
+    ],
+    "isTemplate": false,
+    "count": 0,
+    "lang": "th",
+    "updated": 0
+  },
+  {
+    "id": "770c8f5d-0b38-4c22-b783-73c410c7937b",
+    "data": [
+      {
+        "text": "ยังไม่ทำตอนนี้",
+        "userDefined": true
+      }
+    ],
+    "isTemplate": false,
+    "count": 0,
+    "lang": "th",
+    "updated": 0
+  },
+  {
+    "id": "5a9f8750-8df8-42f9-91a1-8b5a6306112b",
+    "data": [
+      {
+        "text": "ไว้ทำทีหลัง",
+        "userDefined": true
+      }
+    ],
+    "isTemplate": false,
+    "count": 1,
+    "lang": "th",
+    "updated": 0
+  }
+]

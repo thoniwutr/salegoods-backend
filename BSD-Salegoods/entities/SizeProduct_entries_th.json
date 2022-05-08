@@ -1,0 +1,81 @@
+[
+  {
+    "value": "S",
+    "synonyms": [
+      "S",
+      "small",
+      "little",
+      "เล็ก",
+      "เอ็ส",
+      "s",
+      "เอส"
+    ]
+  },
+  {
+    "value": "M",
+    "synonyms": [
+      "M",
+      "medium",
+      "average",
+      "กลาง",
+      "เอ็ม"
+    ]
+  },
+  {
+    "value": "L",
+    "synonyms": [
+      "L",
+      "large",
+      "huge",
+      "big",
+      "ใหญ่",
+      "แอล"
+    ]
+  },
+  {
+    "value": "XL",
+    "synonyms": [
+      "XL",
+      "เอ็กแอล"
+    ]
+  },
+  {
+    "value": "XXL",
+    "synonyms": [
+      "XXL",
+      "เอ็กเอ็กแอล"
+    ]
+  },
+  {
+    "value": "SS",
+    "synonyms": [
+      "SS",
+      "เอสเอส"
+    ]
+  },
+  {
+    "value": "SSS",
+    "synonyms": [
+      "SSS",
+      "เอสเอสเอส"
+    ]
+  },
+  {
+    "value": "กว้าง",
+    "synonyms": [
+      "กว้าง"
+    ]
+  },
+  {
+    "value": "ยาว",
+    "synonyms": [
+      "ยาว"
+    ]
+  },
+  {
+    "value": "สูง",
+    "synonyms": [
+      "สูง"
+    ]
+  }
+]

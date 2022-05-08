@@ -1,0 +1,55 @@
+{
+  "id": "7b41b5f4-147b-4ba6-ac7a-0f32c043e69b",
+  "name": "productConsoltant",
+  "auto": true,
+  "contexts": [],
+  "responses": [
+    {
+      "resetContexts": false,
+      "action": "",
+      "affectedContexts": [
+        {
+          "name": "productConsoltant-followup",
+          "lifespan": 3
+        }
+      ],
+      "parameters": [
+        {
+          "id": "568151c8-1121-4328-ac75-421960588578",
+          "name": "question",
+          "required": false,
+          "dataType": "@Question",
+          "value": "$question",
+          "defaultValue": "",
+          "isList": false,
+          "prompts": [],
+          "promptMessages": [],
+          "noMatchPromptMessages": [],
+          "noInputPromptMessages": [],
+          "outputDialogContexts": []
+        }
+      ],
+      "messages": [
+        {
+          "type": "0",
+          "title": "",
+          "textToSpeech": "",
+          "lang": "th",
+          "speech": [
+            "โปรดพิมพ์รหัสสินค้า เว้นวรรคและตามด้วยคำถามอีกครั้งค่ะ"
+          ],
+          "condition": ""
+        }
+      ],
+      "speech": []
+    }
+  ],
+  "priority": 500000,
+  "webhookUsed": true,
+  "webhookForSlotFilling": false,
+  "fallbackIntent": false,
+  "events": [],
+  "conditionalResponses": [],
+  "condition": "",
+  "conditionalFollowupEvents": []
+}

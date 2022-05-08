@@ -1,0 +1,47 @@
+{
+  "id": "02160947-8b54-40b2-8e00-32f1bbdf7f81",
+  "parentId": "ee2fd8c7-6c2d-48db-820d-1a241a975bec",
+  "rootParentId": "ee2fd8c7-6c2d-48db-820d-1a241a975bec",
+  "name": "OrderProduct - yes",
+  "auto": true,
+  "contexts": [
+    "OrderProduct-followup"
+  ],
+  "responses": [
+    {
+      "resetContexts": false,
+      "action": "OrderProduct.OrderProduct-yes",
+      "affectedContexts": [],
+      "parameters": [],
+      "messages": [
+        {
+          "type": "0",
+          "title": "",
+          "textToSpeech": "",
+          "lang": "th",
+          "speech": [
+            "บัญทึกคำสั่งซื้อเรียบร้อย ขอบพระคุณค่ะ"
+          ],
+          "condition": ""
+        },
+        {
+          "type": "0",
+          "title": "",
+          "textToSpeech": "",
+          "lang": "en",
+          "condition": ""
+        }
+      ],
+      "speech": []
+    }
+  ],
+  "priority": 500000,
+  "webhookUsed": false,
+  "webhookForSlotFilling": false,
+  "fallbackIntent": false,
+  "events": [],
+  "conditionalResponses": [],
+  "condition": "",
+  "conditionalFollowupEvents": [],
+  "endInteraction": true
+}
