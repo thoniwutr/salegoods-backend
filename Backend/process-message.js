@@ -31,9 +31,9 @@ const sessionPath = sessionClient.sessionPath(projectId, sessionId);
 // // if New create token please edit row 35 col 67
 const sendTextMessage = (userId, text) => {
   console.log(userId);
-  console.log(text);
+  console.log("BB"+text);
   return fetch(
-    "https://graph.facebook.com/v2.6/me/messages?access_token=EAAxI3kbE7B0BAAScl1Pg1pBxXPg1ol3YDi5imuITOqpjd0LZBBULbZCkU7BgfZCZAgOQfMImjpE6mTVVrysZBEZBtvWdIcBCPMZBigZBUgITJtDQnxIOIxj5xnEFCqf0ZAoTokggZBTBKNdZA3Vs912Ch4ReQIX9opMpB5c0V721nuf1cgmu8qZAhgQc",
+    "https://graph.facebook.com/v2.6/me/messages?access_token=EAADZB19riRPkBAEikuRxLqfBMWpJqsZBwAujprZAGZCh5uYYdBpzpcEG6HCtOMrA6KqzZAenE4TUB6ETWOILC6ZB0K5kPQr9CMlcwAdTgNZApr5OgZC5O9cHZAxr2tt1G4n3xswvKFSCN0e75aYopLdRssCmqS7P3wahMjKJ61ThzOpFZBwq128YJq",
     {
       headers: {
         "Content-Type": "application/json",
@@ -49,13 +49,19 @@ const sendTextMessage = (userId, text) => {
         },
       }),
     }
-  );
+  ) .then(user => {
+	console.log(user);
+  })
+  .catch(err => {
+	console.error(err);
+  });
 };
 
 
 module.exports = (event) => {
   const userId = event.sender.id;
   const message = event.message.text;
+
 
   const request = {
     session: sessionPath,
@@ -71,7 +77,7 @@ module.exports = (event) => {
     .detectIntent(request)
     .then((responses) => {
       const result = responses[0].queryResult;
-      return sendTextMessage(userId, result.fulfillmentText);
+      return sendTextMessage(userId, 'sss');
     })
     .catch((err) => {
       console.error("ERROR:", err);

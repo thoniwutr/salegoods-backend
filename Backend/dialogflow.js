@@ -44,14 +44,7 @@ function processDialogFlow(realtimeDB, fireStore, fbCommentDetail) {
 
 	   sessionClient
 	  .detectIntent(request)
-	  .then((responses) => {
-		const result = responses[0].queryResult;
-		//console.log(responses[0].parameters['Wording']);
-		// console.log(responses[0].queryResult);
-		// var productNo = responses[0].queryResult.parameters.fields.product_no_.listValue.values[0].stringValue;
-		// if(productNo != undefined){
-		// 	console.log(productNo);
-		// };
+	  .then((responses) => {	
 		var productNoList = [];
 		if(responses[0].queryResult.parameters.fields.Product_No_ != undefined){
 			productNoList =responses[0].queryResult.parameters.fields.Product_No_.listValue.values;
@@ -74,7 +67,8 @@ function processDialogFlow(realtimeDB, fireStore, fbCommentDetail) {
 			pageId: fbCommentDetail.PageID,
 			pageName : fbCommentDetail.PageName,		
 			postId: fbCommentDetail.PostID,
-			wording: wording
+			wording: wording,
+			hasProcess: false
 		}
 
 		var obj = {
@@ -93,6 +87,7 @@ function processDialogFlow(realtimeDB, fireStore, fbCommentDetail) {
 		};
 
 		productJSON = Object.assign(dialogFlowType,obj)
+
 		firebaseDB.insertRealTimeLive(fireStore, productJSON)
 
 		//check product no and quantity with product DB
@@ -100,10 +95,7 @@ function processDialogFlow(realtimeDB, fireStore, fbCommentDetail) {
 		productJSON.products.forEach(
 			(element, index) => firebaseDB.getProduct(fireStore,productJSON, wording, element.productNo, element.quantity)
 		)
-	
-
-		//update status to has process
-		realtimeDB.ref('fbComment').child(dialogFlowType.commentId).update({ hasProcess: true })
+		
 
 		return console.log(productJSON)
 	  })
@@ -114,3 +106,6 @@ function processDialogFlow(realtimeDB, fireStore, fbCommentDetail) {
 }
 
 module.exports = { processDialogFlow }
+
+
+

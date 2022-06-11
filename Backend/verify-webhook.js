@@ -10,8 +10,10 @@ const verifyWebhook = (req, res) => {
 	console.log("p-challenge", challenge);
 	console.log("p-VERIFY_TOKEN", VERIFY_TOKEN);
 	if (mode && token === VERIFY_TOKEN) {
+		console.log("token 200")
 	  res.status(200).send(challenge);
 	} else {
+		console.log("token 403")
 	  res.sendStatus(403);
 	}
   };

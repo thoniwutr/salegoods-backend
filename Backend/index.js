@@ -5,6 +5,8 @@ const messageWebhook = require("./message-webhook");
 //const sheetGoogle = require('./sheetGoogle');
 //live facebook to dialogflow
 const dialogFlow = require('./dialogflow');
+const firebaseDB = require('./firebasedb');
+const { firestore } = require("firebase-admin");
 
 const app = express();
 //for massenger
@@ -48,10 +50,11 @@ function connectFirebase() {
 
 	  snapshot.forEach(function(data) {
         //console.log(data.val().hasProcess);
-	  	var hasProcessFlag = data.val().hasProcess;
 		var commentMsg = data.val().CommentMessage;
 		var fristRound = false;
-		
+
+		var hasProcess = firebaseDB.commentHasProcess(fireStore,data.val().CommentID)
+
 		// if(fristRound == true){
 		// 	if(commentIDflag != data.val().CommentID){
 		// 		//set hasProcessFlag = true
@@ -61,7 +64,11 @@ function connectFirebase() {
 		// 	var commentIDflag = data.val().CommentID;
 		// 	fristRound == true
 		// }
-	dialogFlow.processDialogFlow(realtimeDB,fireStore, data.val());
+
+		if(hasProcess != true){
+		dialogFlow.processDialogFlow(realtimeDB,fireStore, data.val());
+		}
+	
 		// var productNo = "T1";
 		// var quatity = "2";
 		// const db =  getFirestore();
