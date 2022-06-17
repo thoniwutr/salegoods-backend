@@ -7,6 +7,7 @@ const messageWebhook = require("./message-webhook");
 const dialogFlow = require('./dialogflow');
 const firebaseDB = require('./firebasedb');
 const { firestore } = require("firebase-admin");
+const facebook = require("./facebook");
 
 const app = express();
 //for massenger
@@ -33,27 +34,59 @@ function connectFirebase() {
 
   // As an admin, the app has access to read and write all data, regardless of Security Rules
   var realtimeDB = admin.database();
+    facebook.sendTextMessage(
+        "241205487847701",
+        "ไม่มีรหัสสินค้าหรือสินค้านี้ไม่เปิดในการขายครั้งนี้"
+      );
+
 
   var fireStore = getFirestore();
 
   var ref = realtimeDB.ref("fbComment");
-//   ref.once("value", function (snapshot) {
-//     console.log(snapshot.val());
-//   });
-//ref.child('509535760832977_1687136051619185').update({ hasProcess: true });
+ 
+  ref.on('value',  (snapshot) => {
 
-  // Attach an asynchronous callback to read the data at our posts reference
-  ref.on('value', (snapshot) => {
+	 snapshot.forEach(function(data) {
+		var fbCommentDetail = data.val()
+		//Check Comment is already in live time live 
+		var documentIsExists =  firebaseDB.commentIsExists(fireStore,fbCommentDetail)
+	
+		// let promise = new Promise((resolve, reject) => {
+		// 	setTimeout(() => {
+		// 		// dialogFlow.processDialogFlow(fireStore, data.val());
+		// 		firebaseDB.commentHasProcess(fireStore,fbCommentDetail)
+		// 	}, 1000); 
+		//  });
 
-	const fbObj = snapshot.val();
+	
+		let promise = new Promise((resolve, reject) => {
+			setTimeout(() => {
+				const docRef = fireStore.collection("RealtimeLive").doc(fbCommentDetail.CommentID);
+				docRef.get().then((doc) => {
+				const process = doc.data().statusProcess
+				if(process == 'pending'){
+					dialogFlow.processDialogFlow(fireStore, doc.data());
+				}else{
+					//TODO
+				}
+			 
+			 }).catch((error) => {
+				 console.log("Error getting document:", error);
+				 return false;
+			 });
+			}, 2000); 
+		 });
+
+	//  promise.then(value => {
+	// 		console.log(`Resolved:`);
+	// 	});
 
 
-	  snapshot.forEach(function(data) {
-        //console.log(data.val().hasProcess);
-		var commentMsg = data.val().CommentMessage;
-		var fristRound = false;
-
-		var hasProcess = firebaseDB.commentHasProcess(fireStore,data.val().CommentID)
+		// if(hasProcess != 'pending'){
+		// 	//console.log(fbCommentDetail.CommentID)
+	  //dialogFlow.processDialogFlow(fireStore, data.val());
+		// }
+		
 
 		// if(fristRound == true){
 		// 	if(commentIDflag != data.val().CommentID){
@@ -65,10 +98,6 @@ function connectFirebase() {
 		// 	fristRound == true
 		// }
 
-		if(hasProcess != true){
-		dialogFlow.processDialogFlow(realtimeDB,fireStore, data.val());
-		}
-	
 		// var productNo = "T1";
 		// var quatity = "2";
 		// const db =  getFirestore();

@@ -31,12 +31,15 @@ const sessionPath = sessionClient.sessionPath(projectId, sessionId);
 // // Don"t forget to add it to your `variables.env` file.
 // // const { FACEBOOK_ACCESS_TOKEN } = process.env;
 
-function processDialogFlow(realtimeDB, fireStore, fbCommentDetail) {
+function processDialogFlow(fireStore, data) {
+	
+	firebaseDB.updateProcess(fireStore,data.commentId, "Inprogress")
+	
 	const request = {
 		session: sessionPath,
 		queryInput: {
 		  text: {
-			text: fbCommentDetail.CommentMessage,
+			text: data.commentMsg,
 			languageCode: languageCode,
 		  },
 		},
@@ -46,29 +49,32 @@ function processDialogFlow(realtimeDB, fireStore, fbCommentDetail) {
 	  .detectIntent(request)
 	  .then((responses) => {	
 		var productNoList = [];
+		
 		if(responses[0].queryResult.parameters.fields.Product_No_ != undefined){
-			productNoList =responses[0].queryResult.parameters.fields.Product_No_.listValue.values;
-	
-		};
+			productNoList = responses[0].queryResult.parameters.fields.Product_No_.listValue.values;
+		}
 
 		wording = '-'
 
 		if(responses[0].queryResult.parameters.fields.Wording != undefined){
 			wording =  responses[0].queryResult.parameters.fields.Wording.listValue.values[0].stringValue
+		}else{
+			firebaseDB.updateProcess(fireStore,data.commentId, "process error with unknown wording")
 		}
 
 
+
 		const dialogFlowType = {
-			commentId : fbCommentDetail.CommentID,
-			commentMsg : fbCommentDetail.CommentMessage,
-			createdTime : fbCommentDetail.CreatedTime,
-			customerFacebookId : fbCommentDetail.FacebookUserID,  // for sending message to customer
-			username : fbCommentDetail.UserName,
-			pageId: fbCommentDetail.PageID,
-			pageName : fbCommentDetail.PageName,		
-			postId: fbCommentDetail.PostID,
+			commentId : data.commentId,
+			commentMsg : data.commentMsg,
+			createdTime : data.createdTime,
+			customerFacebookId : data.customerFacebookId,  // for sending message to customer
+			username : data.username,
+			pageId: data.pageId,
+			pageName : data.pageName,		
+			postId: data.postId,
 			wording: wording,
-			hasProcess: false
+			statusProcess: data.statusProcess
 		}
 
 		var obj = {
@@ -80,24 +86,30 @@ function processDialogFlow(realtimeDB, fireStore, fbCommentDetail) {
 				(element, index) => obj.products.push(
 					{
 						productNo : element.stringValue,
-						quantity : responses[0].queryResult.parameters.fields.number.listValue.values.length > 0 ? responses[0].queryResult.parameters.fields.number.listValue.values[index].numberValue : 1,
+						quantity : responses[0].queryResult.parameters.fields.number.listValue.values.length > 0 ? responses[0].queryResult.parameters.fields.number.listValue.values[0].numberValue : 1,
 					}
 				)
 			);
 		};
 
+
+
 		productJSON = Object.assign(dialogFlowType,obj)
 
-		firebaseDB.insertRealTimeLive(fireStore, productJSON)
+		//firebaseDB.insertRealTimeLive(fireStore, productJSON)
 
 		//check product no and quantity with product DB
 
-		productJSON.products.forEach(
-			(element, index) => firebaseDB.getProduct(fireStore,productJSON, wording, element.productNo, element.quantity)
-		)
+
+	
+
+		 productJSON.products.forEach(
+		 	(element, index) => firebaseDB.getProduct(fireStore,productJSON, wording, element.productNo, element.quantity)
+		 )
+		
 		
 
-		return console.log(productJSON)
+		//  return console.log(productJSON)
 	  })
 	  .catch((err) => {
 		console.error("ERROR:", err);
