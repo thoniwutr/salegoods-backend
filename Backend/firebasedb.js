@@ -1,6 +1,16 @@
 const facebook = require("./facebook");
 var uuid = require("uuid");
 const dialogFlow = require('./dialogflow');
+const { getFirestore } = require('firebase-admin/firestore');
+
+let admin = require("firebase-admin");
+let serviceAccount = require("./serviceAccountKey.json");
+admin.initializeApp({
+  credential: admin.credential.cert(serviceAccount),
+  databaseURL:
+    "https://bsd-salegoods-default-rtdb.asia-southeast1.firebasedatabase.app",
+});
+const fireStore = getFirestore();
 
 
 function updateHasProcessStatus(fs, fbComment) {
@@ -66,6 +76,12 @@ function updateProcess(fs, commentId, process) {
   docRef.update({ statusProcess: process });
 }
 
+function recordOrder(fs, order) {
+  const docRef = fs.collection("Order").doc(uuid.v4());
+  docRef.set(order);
+}
+
+
 async function getProduct(fs, productJSON, wording, iProductNo, iQuantity) {
 
   console.log(wording + " " + iProductNo + " " + iQuantity);
@@ -111,6 +127,7 @@ async function getProduct(fs, productJSON, wording, iProductNo, iQuantity) {
             productId: doc.data().id,
             productName : doc.data().productName,
             quantity: iQuantity,
+            productPrice: doc.data().price,
             createdDate: new Date().toString(), // for sending message to customer
           };
          insertTransaction(fs, transactionData);
@@ -139,4 +156,7 @@ module.exports = {
   getProduct,
   updateProcess,
   commentIsExists,
+  recordOrder,
+  admin,
+  fireStore
 };

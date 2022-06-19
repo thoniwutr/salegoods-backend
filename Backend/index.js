@@ -5,9 +5,11 @@ const messageWebhook = require("./message-webhook");
 //const sheetGoogle = require('./sheetGoogle');
 //live facebook to dialogflow
 const dialogFlow = require('./dialogflow');
-const firebaseDB = require('./firebasedb');
+const firebase = require('./firebasedb');
 const { firestore } = require("firebase-admin");
 const facebook = require("./facebook");
+const order = require("./order-management")
+
 
 const app = express();
 //for massenger
@@ -16,31 +18,16 @@ app.use(express.json());
 
 app.get("/", verifyWebhook);
 app.post("/", messageWebhook);
+app.post("/create-order", order.createOrder);
 
 app.listen(5001, () => console.log("Express server is listening on port 5001"));
 
 connectFirebase();
 
 function connectFirebase() {
-  let admin = require("firebase-admin");
-  const { getFirestore } = require('firebase-admin/firestore');
-  let serviceAccount = require("./serviceAccountKey.json");
-
-  admin.initializeApp({
-    credential: admin.credential.cert(serviceAccount),
-    databaseURL:
-      "https://bsd-salegoods-default-rtdb.asia-southeast1.firebasedatabase.app",
-  });
-
+ 
   // As an admin, the app has access to read and write all data, regardless of Security Rules
-  var realtimeDB = admin.database();
-    facebook.sendTextMessage(
-        "241205487847701",
-        "ไม่มีรหัสสินค้าหรือสินค้านี้ไม่เปิดในการขายครั้งนี้"
-      );
-
-
-  var fireStore = getFirestore();
+  var realtimeDB = firebase.admin.database();
 
   var ref = realtimeDB.ref("fbComment");
  
@@ -49,7 +36,7 @@ function connectFirebase() {
 	 snapshot.forEach(function(data) {
 		var fbCommentDetail = data.val()
 		//Check Comment is already in live time live 
-		var documentIsExists =  firebaseDB.commentIsExists(fireStore,fbCommentDetail)
+		var documentIsExists =  firebase.commentIsExists(firebase.fireStore,fbCommentDetail)
 	
 		// let promise = new Promise((resolve, reject) => {
 		// 	setTimeout(() => {
@@ -61,11 +48,11 @@ function connectFirebase() {
 	
 		let promise = new Promise((resolve, reject) => {
 			setTimeout(() => {
-				const docRef = fireStore.collection("RealtimeLive").doc(fbCommentDetail.CommentID);
+				const docRef = firebase.fireStore.collection("RealtimeLive").doc(fbCommentDetail.CommentID);
 				docRef.get().then((doc) => {
 				const process = doc.data().statusProcess
 				if(process == 'pending'){
-					dialogFlow.processDialogFlow(fireStore, doc.data());
+					dialogFlow.processDialogFlow(firebase.fireStore, doc.data());
 				}else{
 					//TODO
 				}
