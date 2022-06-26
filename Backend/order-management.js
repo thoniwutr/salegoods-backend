@@ -8,83 +8,84 @@ async function createOrder(req, res) {
   const snapshot = await firebase.fireStore
     .collection("Transactions")
     .where("transactionDetail.postId", "==", payload.postId)
+    .where("txnStatus", "==", "created")
     .get();
 
-  if (snapshot.empty) {
-    res.send("Empty transaction");
-    return;
-  } else {
-    const translations = [];
-    snapshot.forEach((doc) => {
-      console.log(doc.data().transactionDetail.customerFacebookId);
-      translations.push(doc.data());
-    });
+  try {
+    if (snapshot.empty) {
+      res.status(404).send("Not found");
+      return;
+    } else {
+      const translations = [];
+      snapshot.forEach((doc) => {
+        console.log(doc.data().transactionDetail.customerFacebookId);
+        translations.push(doc.data());
+      });
 
-    unique = [
-      ...new Set(
-        translations.map((a) => a.transactionDetail.customerFacebookId)
-      ),
-    ];
+      unique = [
+        ...new Set(
+          translations.map((a) => a.transactionDetail.customerFacebookId)
+        ),
+      ];
 
-    const customer = [];
-    const order = []
+      const customer = [];
+      const order = [];
 
-    unique.forEach((facebookId) => {
-      const txnFilter = translations.filter(
-        (txn) => txn.transactionDetail.customerFacebookId == facebookId
-      );
-      products = [...new Set(txnFilter.map((a) => a.productId))];
-      customer.push({ products, facebookId });
-     
-    });
-    
-    customer.forEach((product) => {
-        const productDetail = [];  
+      unique.forEach((facebookId) => {
+        const txnFilter = translations.filter(
+          (txn) => txn.transactionDetail.customerFacebookId == facebookId
+        );
+        products = [...new Set(txnFilter.map((a) => a.productId))];
+        customer.push({ products, facebookId });
+      });
+
+      customer.forEach((product) => {
+        const productDetail = [];
         const txn = translations.find(
-            (txn) => txn.transactionDetail.customerFacebookId == product.facebookId
+          (txn) =>
+            txn.transactionDetail.customerFacebookId == product.facebookId
         );
         const orderData = {
-            orderId: uuid.v4(),
-            postId: txn.transactionDetail.postId,
-            customerfacebookId : product.facebookId,
-            createdDate: new Date().toDateString(),
-            customerName: txn.transactionDetail.username,
-            orderStatus: "waiting for payment"
-          };    
+          postId: txn.transactionDetail.postId,
+          customerfacebookId: product.facebookId,
+          createdDate: new Date().toDateString(),
+          customerName: txn.transactionDetail.username,
+          orderStatus: "waiting for payment",
+        };
 
-       product.products.forEach((productId, index) => {
-        const txnFilter = translations.filter(
-          (txn) =>
-            txn.transactionDetail.customerFacebookId == product.facebookId &&
-            txn.productId == productId
-        );
-        let totalQuantity = 0;
-        let price = 0;
-        txnFilter.forEach((txn) => {
+        product.products.forEach((productId, index) => {
+          const txnFilter = translations.filter(
+            (txn) =>
+              txn.transactionDetail.customerFacebookId == product.facebookId &&
+              txn.productId == productId
+          );
+          let txnId = [];
+          let totalQuantity = 0;
+          let price = 0;
+          txnFilter.forEach((txn) => {
+            txnId.push(txn.id);
             totalQuantity += txn.quantity;
-            price += txn.productPrice
+            price += txn.productPrice;
+          });
+          productDetail.push({ productId, txnId, totalQuantity, price });
         });
-        productDetail.push({productId, totalQuantity, price})
-      })
-      order.push({orderData,productDetail: productDetail})
-    });
+        order.push({ id: uuid.v4(), orderData, productDetail: productDetail });
+      });
 
-    console.log(order)
-    const payload = JSON.parse(JSON.stringify(order))
-    console.log(payload)
+      console.log(order);
+      const payload = JSON.parse(JSON.stringify(order));
+      console.log(payload);
 
-    order.forEach((payload) => {
-        firebase.recordOrder(firebase.fireStore,payload)
-    })
-    
+      order.forEach((payload) => {
+        firebase.recordOrder(firebase.fireStore, payload);
+      });
 
-
-
-    res.send(payload);
+      res.send(payload);
+    }
+  } catch (e) {
+    res.status(500).send(e.message);
   }
 
-
-  
   // const docRef = firebase.fireStore.collection("OrderTmp").doc("222");
   // docRef.set(json);
 

@@ -67,7 +67,7 @@ function insertRealTimeLive(fs, fbComment) {
 }
 
 function insertTransaction(fs, transactionData) {
-  const docRef = fs.collection("Transactions").doc(uuid.v4());
+  const docRef = fs.collection("Transactions").doc(transactionData.id);
   docRef.set(transactionData);
 }
 
@@ -76,9 +76,19 @@ function updateProcess(fs, commentId, process) {
   docRef.update({ statusProcess: process });
 }
 
+function updateTransactionStatus(fs, txnId, newStatus) {
+  const docRef = fs.collection("Transactions").doc(txnId);
+  docRef.update({ txnStatus: newStatus });
+}
+
 function recordOrder(fs, order) {
-  const docRef = fs.collection("Order").doc(uuid.v4());
+  const docRef = fs.collection("Order").doc(order.id);
   docRef.set(order);
+  order.productDetail.forEach((product) => {
+    product.txnId.forEach((id) => {
+        updateTransactionStatus(fs,id,"completed")
+    })
+  })
 }
 
 
@@ -128,7 +138,9 @@ async function getProduct(fs, productJSON, wording, iProductNo, iQuantity) {
             productName : doc.data().productName,
             quantity: iQuantity,
             productPrice: doc.data().price,
-            createdDate: new Date().toString(), // for sending message to customer
+            createdDate: new Date().toString(), 
+            txnStatus : "created"
+            // for sending message to customer
           };
          insertTransaction(fs, transactionData);
          updateProcess(fs,productJSON.commentId, "done")
