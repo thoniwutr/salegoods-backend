@@ -1,5 +1,6 @@
 const firebase = require("./firebasedb");
 var uuid = require("uuid");
+const facebook = require("./facebook");
 
 async function createOrder(req, res) {
   let payload = req.body;
@@ -67,7 +68,7 @@ async function createOrder(req, res) {
             totalQuantity += txn.quantity;
             price += txn.productPrice;
           });
-          productDetail.push({ productId, txnId, totalQuantity, price });
+          productDetail.push({ productId, txnId, productName : txn.productName,totalQuantity, price });
         });
         order.push({ id: uuid.v4(), orderData, productDetail: productDetail });
       });
@@ -79,6 +80,23 @@ async function createOrder(req, res) {
       order.forEach((payload) => {
         firebase.recordOrder(firebase.fireStore, payload);
       });
+
+   
+      order.forEach((payload) => {
+        let orderMsg = ''
+        let totalPriceMsg = 0
+        payload.productDetail.forEach((item) => {
+          orderMsg += `รหัสสินค้า: ${item.productName} จำนวนสินค้า: ${item.totalQuantity} ราคา: ${item.price} บาท\n`
+          totalPriceMsg += item.price
+      })
+      console.log(orderMsg)
+      console.log(totalPriceMsg)
+      facebook.sendTextMessage(
+        payload.orderData.customerfacebookId,
+        `ขอสรุปออเดอร์ของท่านดังนี้\nรายละเอียดสินค้าที่ท่าน CF ใน live นี้\n${orderMsg}\nรวมราคาสินค้าทั้งหมด ${totalPriceMsg} บาท\n**************************`
+      );
+    })
+
 
       res.send(payload);
     }

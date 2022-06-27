@@ -5,7 +5,7 @@ async function sendTextMessage(userId, text) {
 	console.log(userId);
 	console.log(text);
 	await fetch(
-		"https://graph.facebook.com/v2.6/me/messages?access_token=EAADZB19riRPkBAI4NZC1QeKI4o4Gw4o4QWuOY0ZCZAcIl52Pa8nubuhC22Bm3lfdYuyjqTWcdas2wu66d2ENHZCNWjE7uCDFjjRL8KtISBZBzys1Ege4lROQUJtBw6FAnRMhbY0XqaKR7LaEzZAZCXC3vzwx9ikkrXbdlnzNzVJuk1AsM8ODsxhS",
+		"https://graph.facebook.com/v2.6/me/messages?access_token=EAADZB19riRPkBAGO9f5hxaqeZBIHTV3vya5SbDdrZBr7Y37RhtPFmgE97XTGC78FfSBZA4mGkUiojZBh1LJ59HZBABEZB37fpRI3Qyns4srwZC88YPysjxT5G4jkyJ3qxQLZBbOn6RNQ29hVhBxgsUZCbpdI66p2t7izwiJ2SNyY42XzEbS27a02Yo",
 	  {
 		headers: {
 		  "Content-Type": "application/json",

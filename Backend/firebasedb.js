@@ -1,7 +1,7 @@
 const facebook = require("./facebook");
 var uuid = require("uuid");
-const dialogFlow = require('./dialogflow');
-const { getFirestore } = require('firebase-admin/firestore');
+const dialogFlow = require("./dialogflow");
+const { getFirestore } = require("firebase-admin/firestore");
 
 let admin = require("firebase-admin");
 let serviceAccount = require("./serviceAccountKey.json");
@@ -12,7 +12,6 @@ admin.initializeApp({
 });
 const fireStore = getFirestore();
 
-
 function updateHasProcessStatus(fs, fbComment) {
   const docRef = fs.collection("RealtimeLive").doc(fbComment.commentId);
   docRef.set(fbComment);
@@ -21,44 +20,46 @@ function updateHasProcessStatus(fs, fbComment) {
 const grabUserData = async (fs, commentId) => {
   var docRef = fs.collection("RealtimeLive").doc(commentId);
   try {
-      var doc = await docRef.get()
-      if (doc.exists) {
-          //console.log(doc.data()); //see below for doc object
-          return doc.data(); 
-      } else {
-          console.log("No such document!");
-      }
-  } catch (error) {
-      console.log("Error getting document:", error);
-  };
-}
-
-function commentIsExists(fs, fbCommentDetail)  {
-  const docRef = fs.collection("RealtimeLive").doc(fbCommentDetail.CommentID);
-   docRef.get().then((doc) => {
+    var doc = await docRef.get();
     if (doc.exists) {
-      console.log("Document data:", fbCommentDetail.CommentID);
+      //console.log(doc.data()); //see below for doc object
+      return doc.data();
     } else {
-      console.log("No such document exist", fbCommentDetail.CommentID);
-      const livePayload = {
-				commentId : fbCommentDetail.CommentID,
-				commentMsg : fbCommentDetail.CommentMessage,
-				createdTime : fbCommentDetail.CreatedTime,
-				customerFacebookId : fbCommentDetail.FacebookUserID,  // for sending message to customer
-				username : fbCommentDetail.UserName,
-				pageId: fbCommentDetail.PageID,
-				pageName : fbCommentDetail.PageName,		
-				postId: fbCommentDetail.PostID,
-				statusProcess: 'pending'
-			}
-			insertRealTimeLive(fs, livePayload)
-      console.log("insert sucess");
+      console.log("No such document!");
     }
-
-}).catch((error) => {
+  } catch (error) {
     console.log("Error getting document:", error);
-    return false;
-});
+  }
+};
+
+function commentIsExists(fs, fbCommentDetail) {
+  const docRef = fs.collection("RealtimeLive").doc(fbCommentDetail.CommentID);
+  docRef
+    .get()
+    .then((doc) => {
+      if (doc.exists) {
+        console.log("Document data:", fbCommentDetail.CommentID);
+      } else {
+        console.log("No such document exist", fbCommentDetail.CommentID);
+        const livePayload = {
+          commentId: fbCommentDetail.CommentID,
+          commentMsg: fbCommentDetail.CommentMessage,
+          createdTime: fbCommentDetail.CreatedTime,
+          customerFacebookId: fbCommentDetail.FacebookUserID, // for sending message to customer
+          username: fbCommentDetail.UserName,
+          pageId: fbCommentDetail.PageID,
+          pageName: fbCommentDetail.PageName,
+          postId: fbCommentDetail.PostID,
+          statusProcess: "pending",
+        };
+        insertRealTimeLive(fs, livePayload);
+        console.log("insert sucess");
+      }
+    })
+    .catch((error) => {
+      console.log("Error getting document:", error);
+      return false;
+    });
 }
 
 function insertRealTimeLive(fs, fbComment) {
@@ -86,14 +87,12 @@ function recordOrder(fs, order) {
   docRef.set(order);
   order.productDetail.forEach((product) => {
     product.txnId.forEach((id) => {
-        updateTransactionStatus(fs,id,"completed")
-    })
-  })
+      updateTransactionStatus(fs, id, "completed");
+    });
+  });
 }
 
-
 async function getProduct(fs, productJSON, wording, iProductNo, iQuantity) {
-
   console.log(wording + " " + iProductNo + " " + iQuantity);
 
   const snapshot = await fs
@@ -110,19 +109,19 @@ async function getProduct(fs, productJSON, wording, iProductNo, iQuantity) {
       //   productJSON.customerFacebookId,
       //   "ไม่มีรหัสสินค้าหรือสินค้านี้ไม่เปิดในการขายครั้งนี้"
       // );
-      updateProcess(fs,productJSON.commentId, "done")
+      updateProcess(fs, productJSON.commentId, "done");
       return;
     }
 
     snapshot.forEach((doc) => {
       const docRef = fs.collection("Products").doc(doc.id);
       if (doc.data().quantity > 0) {
-        console.log(doc.data().quantity)
+        console.log(doc.data().quantity);
         var quantityRemaining = doc.data().quantity - iQuantity;
         if (quantityRemaining >= 0) {
           // can create order 120 - 5 = 115 : create order
           // จำนวนสินค้ามากกว่าที่ลูกค้าต้องการ  >> create order
-         docRef.update({ quantity: quantityRemaining });
+          docRef.update({ quantity: quantityRemaining });
           // Send Message
           facebook.sendTextMessage(
             productJSON.customerFacebookId,
@@ -133,29 +132,51 @@ async function getProduct(fs, productJSON, wording, iProductNo, iQuantity) {
           // Create Transaction
           const transactionData = {
             id: uuid.v4(),
-            transactionDetail : productJSON,
+            transactionDetail: productJSON,
             productId: doc.data().id,
-            productName : doc.data().productName,
+            productName: doc.data().productName,
             quantity: iQuantity,
             productPrice: doc.data().price,
-            createdDate: new Date().toString(), 
-            txnStatus : "created"
+            createdDate: new Date().toString(),
+            txnStatus: "created",
             // for sending message to customer
           };
-         insertTransaction(fs, transactionData);
-         updateProcess(fs,productJSON.commentId, "done")
+          insertTransaction(fs, transactionData);
+          updateProcess(fs, productJSON.commentId, "done");
         } else {
           // จำนวนสินค้ามากกว่าที่ลูกค้าต้องการ  >> create order
           var currentQuantity = doc.data().quantity;
-        //
+
+          docRef.update({ quantity: 0 });
+          // Send Message
+          facebook.sendTextMessage(
+            productJSON.customerFacebookId,
+            `ขอขอบพระคุณสำหรับการ CF\n\nเนื่องจากสินค้าของเรามีไม่เพียงพอต่อความต้องการจึงได้สินค้าเพียงบางส่วนตามรายละเอียดดังนี้\n++++++++++++++++++\nรหัสสินค้า: ${iProductNo}\nชื่อสินค้า:${doc.data().productName}\nจำนวนสินค้า: ${currentQuantity}\n++++++++++++++++++`
+          );
+          // Create Transaction
+          const transactionData = {
+            id: uuid.v4(),
+            transactionDetail: productJSON,
+            productId: doc.data().id,
+            productName: doc.data().productName,
+            quantity: currentQuantity,
+            productPrice: doc.data().price,
+            createdDate: new Date().toString(),
+            txnStatus: "created",
+            // for sending message to customer
+          };
+          insertTransaction(fs, transactionData);
+          updateProcess(fs, productJSON.commentId, "done");
+
+          //
           docRef.update({ quantity: 0 });
         }
       } else {
         // send msg สินค้าหมดแล้วนะ
-             // facebook.sendTextMessage(
-      //   productJSON.customerFacebookId,
-      //   "สินค้าหมดแล้วนะครับ"
-      // );
+        facebook.sendTextMessage(
+          productJSON.customerFacebookId,
+          ` ขออภัย รหัสสินค้า: ${iProductNo} ที่ท่านต้องการนั้นหมดแล้ว ไว้โอกาสหน้าให้ทางเพจได้ดูแลอีกครั้ง ขอขอบพระคุณค่ะ`
+        );
       }
     });
   } else if (wording == "CC") {
@@ -170,5 +191,5 @@ module.exports = {
   commentIsExists,
   recordOrder,
   admin,
-  fireStore
+  fireStore,
 };

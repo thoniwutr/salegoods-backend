@@ -9,10 +9,11 @@ const firebase = require('./firebasedb');
 const { firestore } = require("firebase-admin");
 const facebook = require("./facebook");
 const order = require("./order-management")
-
+var cors = require("cors");
 
 const app = express();
 //for massenger
+app.use(cors());
 app.use(express.urlencoded({ extended: true }));
 app.use(express.json());
 
