@@ -5,6 +5,7 @@ const { getFirestore } = require("firebase-admin/firestore");
 
 let admin = require("firebase-admin");
 let serviceAccount = require("./serviceAccountKey.json");
+const e = require("express");
 admin.initializeApp({
   credential: admin.credential.cert(serviceAccount),
   databaseURL:
@@ -77,9 +78,15 @@ function updateProcess(fs, commentId, process) {
   docRef.update({ statusProcess: process });
 }
 
+
 function updateTransactionStatus(fs, txnId, newStatus) {
   const docRef = fs.collection("Transactions").doc(txnId);
   docRef.update({ txnStatus: newStatus });
+}
+
+function updateTxnCancelling(fs, txnId) {
+  const docRef = fs.collection("Transactions").doc(txnId);
+  docRef.update({ isCancelled: true });
 }
 
 function recordOrder(fs, order) {
@@ -99,16 +106,33 @@ async function getProduct(fs, productJSON, wording, iProductNo, iQuantity) {
     .collection("Products")
     .where("wordingOrder", "==", iProductNo)
     .where("available", "==", "available")
+    .limit(1)
     .get();
+ 
+  let txnSnapshot = null
+   
+  if (wording == 'CC') {
+      const doc = snapshot.docs[0]
+      console.log(doc.data())
+      txnSnapshot = await fs
+      .collection("Transactions")
+      .where("transactionDetail.postId", "==", productJSON.postId)
+      .where("transactionDetail.wording","==","CF")
+      .where("isCancelled","==",false)
+      .where("transactionDetail.customerFacebookId", "==", productJSON.customerFacebookId)
+      .where("productId", "==", doc.data().id)
+      .get();
+  }
+  
 
   // CF
   if (wording == "CF") {
     if (snapshot.empty) {
       console.log("No matching documents.");
-      // facebook.sendTextMessage(
-      //   productJSON.customerFacebookId,
-      //   "ไม่มีรหัสสินค้าหรือสินค้านี้ไม่เปิดในการขายครั้งนี้"
-      // );
+      facebook.sendTextMessage(
+        productJSON.customerFacebookId,
+        "ไม่มีรหัสสินค้าหรือสินค้านี้ไม่เปิดในการขายครั้งนี้"
+      );
       updateProcess(fs, productJSON.commentId, "done");
       return;
     }
@@ -136,6 +160,7 @@ async function getProduct(fs, productJSON, wording, iProductNo, iQuantity) {
             productId: doc.data().id,
             productName: doc.data().productName,
             quantity: iQuantity,
+            isCancelled : false,
             productPrice: doc.data().price,
             createdDate: new Date().toString(),
             txnStatus: "created",
@@ -160,6 +185,7 @@ async function getProduct(fs, productJSON, wording, iProductNo, iQuantity) {
             productId: doc.data().id,
             productName: doc.data().productName,
             quantity: currentQuantity,
+            isCancelled : false,
             productPrice: doc.data().price,
             createdDate: new Date().toString(),
             txnStatus: "created",
@@ -180,8 +206,60 @@ async function getProduct(fs, productJSON, wording, iProductNo, iQuantity) {
       }
     });
   } else if (wording == "CC") {
-  } else if (wording == "question_price") {
-  }
+    if (snapshot.empty) {
+      console.log("No matching documents.");
+      facebook.sendTextMessage(
+        productJSON.customerFacebookId,
+        `ไม่มีรหัสสินค้า: ${iProductNo} นี้ในรายการสั่งซื้อของท่าน`
+      );
+      updateProcess(fs, productJSON.commentId, "done");
+      return;
+    }
+
+    snapshot.forEach((doc) => {
+      const docRef = fs.collection("Products").doc(doc.id);
+      let countProductQuantity = 0
+      txnSnapshot.forEach((value) => {
+         const txnRef = fs.collection("Transactions").doc(value.id);
+         const txn = value.data()
+         countProductQuantity += txn.quantity
+         updateTxnCancelling(fs,txn.id)         
+      })
+
+      
+
+      var quantityRemaining = doc.data().quantity + countProductQuantity;
+      docRef.update({ quantity: quantityRemaining });
+
+      if(countProductQuantity > 0){
+        facebook.sendTextMessage(
+          productJSON.customerFacebookId,
+          `ท่านได้ทำการยกเลิกสินค้า\n\n++++++++++++++++++\nรหัสสินค้า: ${iProductNo}\nชื่อสินค้า:${doc.data().productName}\nจำนวนสินค้า: ${countProductQuantity}\n++++++++++++++++++\nเรียบร้อยแล้วค่ะ`
+        );
+      }else{
+        facebook.sendTextMessage(
+          productJSON.customerFacebookId,
+          `ไม่มีรหัสสินค้า: ${iProductNo} นี้ในรายการสั่งซื้อของท่าน`
+        );
+      }
+
+         // Create Transaction
+         const transactionData = {
+          id: uuid.v4(),
+          transactionDetail: productJSON,
+          productId: doc.data().id,
+          productName: doc.data().productName,
+          quantity: countProductQuantity,
+          productPrice: doc.data().price,
+          createdDate: new Date().toString(),
+          txnStatus: "created",
+          // for sending message to customer
+        };
+        insertTransaction(fs, transactionData);
+        updateProcess(fs, productJSON.commentId, "done");
+    });
+
+  } 
 }
 
 module.exports = {

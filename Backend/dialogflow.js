@@ -50,8 +50,8 @@ function processDialogFlow(fireStore, data) {
 	  .then((responses) => {	
 		var productNoList = [];
 		
-		if(responses[0].queryResult.parameters.fields.Product_No_ != undefined){
-			productNoList = responses[0].queryResult.parameters.fields.Product_No_.listValue.values;
+		if(responses[0].queryResult.parameters.fields.productNo != undefined){
+			productNoList = responses[0].queryResult.parameters.fields.productNo.listValue.values;
 		}
 
 		wording = '-'
@@ -61,7 +61,6 @@ function processDialogFlow(fireStore, data) {
 		}else{
 			firebaseDB.updateProcess(fireStore,data.commentId, "process error with unknown wording")
 		}
-
 
 
 		const dialogFlowType = {
@@ -77,12 +76,13 @@ function processDialogFlow(fireStore, data) {
 			statusProcess: data.statusProcess
 		}
 
+
 		var obj = {
 			products: []
 		  };
 
-		  if(responses[0].queryResult.parameters.fields.Product_No_ != undefined){
-			responses[0].queryResult.parameters.fields.Product_No_.listValue.values.forEach(
+		  if(responses[0].queryResult.parameters.fields.productNo != undefined){
+			responses[0].queryResult.parameters.fields.productNo.listValue.values.forEach(
 				(element, index) => obj.products.push(
 					{
 						productNo : element.stringValue,
@@ -95,7 +95,6 @@ function processDialogFlow(fireStore, data) {
 
 
 		productJSON = Object.assign(dialogFlowType,obj)
-
 		//firebaseDB.insertRealTimeLive(fireStore, productJSON)
 
 		//check product no and quantity with product DB
@@ -107,7 +106,7 @@ function processDialogFlow(fireStore, data) {
 		 	(element, index) => firebaseDB.getProduct(fireStore,productJSON, wording, element.productNo, element.quantity)
 		 )
 		
-		
+		 
 
 		//  return console.log(productJSON)
 	  })
