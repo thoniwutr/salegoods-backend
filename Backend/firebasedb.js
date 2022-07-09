@@ -33,6 +33,7 @@ const grabUserData = async (fs, commentId) => {
   }
 };
 
+
 function commentIsExists(fs, fbCommentDetail) {
   const docRef = fs.collection("RealtimeLive").doc(fbCommentDetail.CommentID);
   docRef
@@ -98,6 +99,134 @@ function recordOrder(fs, order) {
     });
   });
 }
+
+async function handleCALLLogistic(fs,facebookId,commentId) {
+  const snapshot = await fs
+  .collection("Order")
+  .where("orderData.customerfacebookId", "==", facebookId)
+  .limit(1)
+  .get();
+
+  if (snapshot.empty) {
+    snapshot.forEach((doc) => {
+      facebook.sendTextMessage(
+        facebookId,
+        "ไม่มีรายการของคุณที่ยังไม่ได้จัดส่ง"
+      );
+    })
+  }else{
+    snapshot.forEach((doc) => {
+      var data = doc.data();
+      console.log(data)
+      facebook.sendTextMessage(
+        facebookId,
+        `รายการสั่งซื้อ ${data.orderData.createdDate}\nสถานะ : ${data.orderData.orderStatus}\n+++++++++++++++++++++++++++++\n*ระยะเวลาในการส่งสินค้าใช้เวลา 3-7วันขึ้นอยู่กับขนส่งแต่ละพื้นที่\n**หากท่านชำระเงินแล้วสินค้าจะถูกส่งในวันถัดไป”`
+      );
+    })
+  }
+  updateProcess(fs, commentId, "done");
+}
+
+
+async function handleLogisticPrice(fs,facebookId,commentId) {
+  const snapshot = await fs
+  .collection("UserManagement")
+  .limit(1)
+  .get();
+
+  if (!snapshot.empty) {
+    snapshot.forEach((doc) => {
+      var data = doc.data();
+      console.log(data)
+      facebook.sendTextMessage(
+        facebookId,
+        `ค่าส่งสินค้า ${data.deliveryPrice}บาท ต่อออเดอร์`
+      );
+    })
+  }
+  updateProcess(fs, commentId, "done");
+}
+
+async function handleHowToBuy(fs,facebookId,commentId) {
+  const snapshot = await fs
+  .collection("UserManagement")
+  .limit(1)
+  .get();
+
+  if (!snapshot.empty) {
+    snapshot.forEach((doc) => {
+      var data = doc.data();
+      console.log(data)
+      facebook.sendTextMessage(
+        facebookId,
+        `หากท่านทำการCF สินค้าแล้ว โปรดรอรับข้อความตอบกลับ ถือว่าเป็นได้รับสินค้าแล้ว เรื่องการชำระเงินขอให้ชำระเงินหลังจาก โดยการโอนมาที่ ${data.bankTransferDetail}`
+      );
+    })
+  }
+  updateProcess(fs, commentId, "done");
+}
+
+async function handleAskPrice(fs,facebookId,commentId, wordingOrder) {
+  const snapshot = await fs
+  .collection("Products")
+  .where("wordingOrder","==",wordingOrder)
+  .limit(1)
+  .get();
+
+  if (!snapshot.empty) {
+    snapshot.forEach((doc) => {
+      var data = doc.data();
+      console.log(data)
+      facebook.sendTextMessage(
+        facebookId,
+        `${data.price} THB ต่อชิ้น`
+      );
+    })
+  }
+  updateProcess(fs, commentId, "done");
+}
+
+
+async function handleAskAvailable(fs,facebookId,commentId, wordingOrder) {
+  const snapshot = await fs
+  .collection("Products")
+  .where("wordingOrder","==",wordingOrder)
+  .limit(1)
+  .get();
+
+  if (!snapshot.empty) {
+    snapshot.forEach((doc) => {
+      var data = doc.data();
+      console.log(data)
+      facebook.sendTextMessage(
+        facebookId,
+        `${data.available} THB ต่อชิ้น`
+      );
+    })
+  }
+  updateProcess(fs, commentId, "done");
+}
+
+async function handleAskDetail(fs,facebookId,commentId, wordingOrder) {
+  const snapshot = await fs
+  .collection("Products")
+  .where("wordingOrder","==",wordingOrder)
+  .limit(1)
+  .get();
+
+  if (!snapshot.empty) {
+    snapshot.forEach((doc) => {
+      var data = doc.data();
+      console.log(data)
+      facebook.sendTextMessage(
+        facebookId,
+        `${data.productDetail} THB ต่อชิ้น`
+      );
+    })
+  }
+  updateProcess(fs, commentId, "done");
+}
+
 
 async function getProduct(fs, productJSON, wording, iProductNo, iQuantity) {
   console.log(wording + " " + iProductNo + " " + iQuantity);
@@ -268,6 +397,12 @@ module.exports = {
   updateProcess,
   commentIsExists,
   recordOrder,
+  handleCALLLogistic,
+  handleLogisticPrice,
+  handleAskPrice,
+  handleHowToBuy,
+  handleAskAvailable,
+  handleAskDetail,
   admin,
   fireStore,
 };

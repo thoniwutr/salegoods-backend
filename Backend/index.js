@@ -65,32 +65,6 @@ function connectFirebase() {
 			}, 2000); 
 		 });
 
-	//  promise.then(value => {
-	// 		console.log(`Resolved:`);
-	// 	});
-
-
-		// if(hasProcess != 'pending'){
-		// 	//console.log(fbCommentDetail.CommentID)
-	  //dialogFlow.processDialogFlow(fireStore, data.val());
-		// }
-		
-
-		// if(fristRound == true){
-		// 	if(commentIDflag != data.val().CommentID){
-		// 		//set hasProcessFlag = true
-		// 		//save value to firebase realtime
-		// 	}
-		// }else{
-		// 	var commentIDflag = data.val().CommentID;
-		// 	fristRound == true
-		// }
-
-		// var productNo = "T1";
-		// var quatity = "2";
-		// const db =  getFirestore();
-		// getProduct(db);
-		// updateProduct(db);
     });
 
 	  // 1.Filter comment already process on dialogFlow?
