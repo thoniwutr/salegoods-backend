@@ -65,8 +65,7 @@ function processDialogFlow(fireStore, data) {
           "listValue"
         ) {
           wording =
-            responses[0].queryResult.parameters.fields.Wording.listValue
-              .values[0].stringValue;
+            responses[0].queryResult.parameters.fields.Wording.listValue.values[0].stringValue;
         }
       } else {
         firebaseDB.updateProcess(
@@ -75,9 +74,10 @@ function processDialogFlow(fireStore, data) {
           "process error with unknown wording"
         );
       }
+      console.log(wording)
 
       switch (wording) {
-        case "CF" | "CC":
+        case "CF": 
           {
             const dialogFlowType = {
               commentId: data.commentId,
@@ -115,7 +115,7 @@ function processDialogFlow(fireStore, data) {
 
             productJSON = Object.assign(dialogFlowType, obj);
             //firebaseDB.insertRealTimeLive(fireStore, productJSON)
-
+            console.log(productJSON)
             //check product no and quantity with product DB
 
             productJSON.products.forEach((element, index) =>
@@ -129,6 +129,58 @@ function processDialogFlow(fireStore, data) {
             );
           }
           break;
+          case "CC":
+          {
+            const dialogFlowType = {
+              commentId: data.commentId,
+              commentMsg: data.commentMsg,
+              createdTime: data.createdTime,
+              customerFacebookId: data.customerFacebookId, // for sending message to customer
+              username: data.username,
+              pageId: data.pageId,
+              pageName: data.pageName,
+              postId: data.postId,
+              wording: wording,
+              statusProcess: data.statusProcess,
+            };
+
+            var obj = {
+              products: [],
+            };
+
+            if (
+              responses[0].queryResult.parameters.fields.productNo != undefined
+            ) {
+              responses[0].queryResult.parameters.fields.productNo.listValue.values.forEach(
+                (element, index) =>
+                  obj.products.push({
+                    productNo: element.stringValue,
+                    quantity:
+                      responses[0].queryResult.parameters.fields.number
+                        .listValue.values.length > 0
+                        ? responses[0].queryResult.parameters.fields.number
+                            .listValue.values[0].numberValue
+                        : 1,
+                  })
+              );
+            }
+
+            productJSON = Object.assign(dialogFlowType, obj);
+            //firebaseDB.insertRealTimeLive(fireStore, productJSON)
+            console.log(productJSON)
+            //check product no and quantity with product DB
+
+            productJSON.products.forEach((element, index) =>
+              firebaseDB.getProduct(
+                fireStore,
+                productJSON,
+                wording,
+                element.productNo,
+                element.quantity
+              )
+            );
+          }
+          break;  
         case "askAdmin":
           {
             facebook.sendTextMessage(
@@ -167,6 +219,14 @@ function processDialogFlow(fireStore, data) {
             data.customerFacebookId,
             data.commentId,"wod")
           break;
+          case "askProductDetail":
+            facebook.sendTextMessage(
+              data.customerFacebookId,
+              `โปรดพิมพ์รหัสสินค้า เว้นวรรคและตามด้วยคำถามอีกครั้งค่ะ`
+            );
+            //Update Status
+            firebaseDB.updateProcess(fireStore, data.commentId, "done");
+            break;  
         case "HowtoBuy":
 			firebaseDB.handleHowToBuy(fireStore,
 				data.customerFacebookId,

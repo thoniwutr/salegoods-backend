@@ -65,10 +65,16 @@ async function createOrder(req, res) {
           let price = 0;
           txnFilter.forEach((txn) => {
             txnId.push(txn.id);
-            totalQuantity += txn.quantity;
-            price += txn.productPrice;
+            if(txn.transactionDetail.wording === "CF"){
+              totalQuantity += txn.quantity;
+              price += txn.productPrice;
+            }else if(txn.transactionDetail.wording === "CC"){
+              totalQuantity -= txn.quantity;
+              price -= txn.productPrice;
+            }
+
           });
-          productDetail.push({ productId, txnId, productName : txn.productName,totalQuantity, price });
+          productDetail.push({ productId, txnId, productName : txnFilter[0].productName,totalQuantity, price });
         });
         order.push({ id: uuid.v4(), orderData, productDetail: productDetail });
       });
@@ -86,7 +92,7 @@ async function createOrder(req, res) {
         let orderMsg = ''
         let totalPriceMsg = 0
         payload.productDetail.forEach((item) => {
-          orderMsg += `รหัสสินค้า: ${item.productName} จำนวนสินค้า: ${item.totalQuantity} ราคา: ${item.price} บาท\n`
+          orderMsg += `ชื่อสินค้า: ${item.productName} จำนวนสินค้า: ${item.totalQuantity} ราคา: ${item.price} บาท\n`
           totalPriceMsg += item.price
       })
       console.log(orderMsg)
