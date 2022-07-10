@@ -179,7 +179,7 @@ async function handleAskPrice(fs,facebookId,commentId, wordingOrder) {
       console.log(data)
       facebook.sendTextMessage(
         facebookId,
-        `${data.price} THB ต่อชิ้น`
+        `${(data.available === 'available' && data.quantity > 0) ? `รหัสสินค้า : ${wordingOrder}\n${data.productName}\n${data.productDetail}\nราคา : ${data.price}บาท` : `รหัสสินค้า : ${wordingOrder} ไม่มีมีสินค้าค่ะ`} `
       );
     })
   }
@@ -220,7 +220,7 @@ async function handleAskDetail(fs,facebookId,commentId, wordingOrder) {
       console.log(data)
       facebook.sendTextMessage(
         facebookId,
-        `${data.productDetail} THB ต่อชิ้น`
+        `${(data.available === 'available' && data.quantity > 0) ? `รหัสสินค้า : ${wordingOrder}\n${data.productName}\n${data.productDetail}` : `รหัสสินค้า : ${wordingOrder} ไม่มีมีสินค้าค่ะ`} `
       );
     })
   }

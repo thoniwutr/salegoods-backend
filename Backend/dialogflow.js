@@ -51,9 +51,9 @@ function processDialogFlow(fireStore, data) {
     .detectIntent(request)
     .then((responses) => {
       wording = "-";
-     
-	  console.log(responses[0].queryResult.parameters.fields.Wording)
-	  if (responses[0].queryResult.parameters.fields.Wording != undefined) {
+
+      console.log(responses[0].queryResult.parameters.fields.Wording);
+      if (responses[0].queryResult.parameters.fields.Wording != undefined) {
         if (
           responses[0].queryResult.parameters.fields.Wording.kind ===
           "stringValue"
@@ -65,7 +65,8 @@ function processDialogFlow(fireStore, data) {
           "listValue"
         ) {
           wording =
-            responses[0].queryResult.parameters.fields.Wording.listValue.values[0].stringValue;
+            responses[0].queryResult.parameters.fields.Wording.listValue
+              .values[0].stringValue;
         }
       } else {
         firebaseDB.updateProcess(
@@ -74,10 +75,10 @@ function processDialogFlow(fireStore, data) {
           "process error with unknown wording"
         );
       }
-      console.log(wording)
+      console.log(wording);
 
       switch (wording) {
-        case "CF": 
+        case "CF":
           {
             const dialogFlowType = {
               commentId: data.commentId,
@@ -115,7 +116,7 @@ function processDialogFlow(fireStore, data) {
 
             productJSON = Object.assign(dialogFlowType, obj);
             //firebaseDB.insertRealTimeLive(fireStore, productJSON)
-            console.log(productJSON)
+            console.log(productJSON);
             //check product no and quantity with product DB
 
             productJSON.products.forEach((element, index) =>
@@ -129,7 +130,7 @@ function processDialogFlow(fireStore, data) {
             );
           }
           break;
-          case "CC":
+        case "CC":
           {
             const dialogFlowType = {
               commentId: data.commentId,
@@ -167,7 +168,7 @@ function processDialogFlow(fireStore, data) {
 
             productJSON = Object.assign(dialogFlowType, obj);
             //firebaseDB.insertRealTimeLive(fireStore, productJSON)
-            console.log(productJSON)
+            console.log(productJSON);
             //check product no and quantity with product DB
 
             productJSON.products.forEach((element, index) =>
@@ -180,7 +181,7 @@ function processDialogFlow(fireStore, data) {
               )
             );
           }
-          break;  
+          break;
         case "askAdmin":
           {
             facebook.sendTextMessage(
@@ -193,54 +194,97 @@ function processDialogFlow(fireStore, data) {
           break;
         case "CALLLogistic":
           firebaseDB.handleCALLLogistic(
-			fireStore,
+            fireStore,
             data.customerFacebookId,
             data.commentId
           );
           break;
-        case "askColor" | "askSize":
-          return console.log("askDetail");
-		  firebaseDB.handleAskDetail(fireStore,
-            data.customerFacebookId,
-            data.commentId,"wod")
-          break;
-        case "askPrice":
-          firebaseDB.handleAskPrice(fireStore,
-            data.customerFacebookId,
-            data.commentId,"wod")
-          break;
-        case "askAvailable":
-
-         var wordingOrder = ''
+        case "askColor":
+          var wordingOrder = "";
           if (
             responses[0].queryResult.parameters.fields.productNo != undefined
           ) {
             responses[0].queryResult.parameters.fields.productNo.listValue.values.forEach(
-              (element, index) =>
-              wordingOrder = element.stringValue
+              (element, index) => (wordingOrder = element.stringValue)
             );
           }
-        firebaseDB.handleAskAvailable(fireStore,
-				data.customerFacebookId,
-				data.commentId,wordingOrder)
+          firebaseDB.handleAskDetail(
+            fireStore,
+            data.customerFacebookId,
+            data.commentId,
+            wordingOrder
+          );
+          break;
+        case "askSize":
+          var wordingOrder = "";
+          if (
+            responses[0].queryResult.parameters.fields.productNo != undefined
+          ) {
+            responses[0].queryResult.parameters.fields.productNo.listValue.values.forEach(
+              (element, index) => (wordingOrder = element.stringValue)
+            );
+          }
+          firebaseDB.handleAskDetail(
+            fireStore,
+            data.customerFacebookId,
+            data.commentId,
+            wordingOrder
+          );
+          break;
+        case "askPrice":
+          var wordingOrder = "";
+          if (
+            responses[0].queryResult.parameters.fields.productNo != undefined
+          ) {
+            responses[0].queryResult.parameters.fields.productNo.listValue.values.forEach(
+              (element, index) => (wordingOrder = element.stringValue)
+            );
+          }
+          firebaseDB.handleAskPrice(
+            fireStore,
+            data.customerFacebookId,
+            data.commentId,
+            wordingOrder
+          );
+          break;
+        case "askAvailable":
+          var wordingOrder = "";
+          if (
+            responses[0].queryResult.parameters.fields.productNo != undefined
+          ) {
+            responses[0].queryResult.parameters.fields.productNo.listValue.values.forEach(
+              (element, index) => (wordingOrder = element.stringValue)
+            );
+          }
+          firebaseDB.handleAskAvailable(
+            fireStore,
+            data.customerFacebookId,
+            data.commentId,
+            wordingOrder
+          );
           break;
         case "LogisticPrice":
-          firebaseDB.handleLogisticPrice(fireStore,
+          firebaseDB.handleLogisticPrice(
+            fireStore,
             data.customerFacebookId,
-            data.commentId,"wod")
+            data.commentId,
+            "wod"
+          );
           break;
-          case "askProductDetail":
-            facebook.sendTextMessage(
-              data.customerFacebookId,
-              `โปรดพิมพ์รหัสสินค้า เว้นวรรคและตามด้วยคำถามอีกครั้งค่ะ`
-            );
-            //Update Status
-            firebaseDB.updateProcess(fireStore, data.commentId, "done");
-            break;  
+        case "askProductDetail":
+          facebook.sendTextMessage(
+            data.customerFacebookId,
+            `โปรดพิมพ์รหัสสินค้า เว้นวรรคและตามด้วยคำถามอีกครั้งค่ะ`
+          );
+          //Update Status
+          firebaseDB.updateProcess(fireStore, data.commentId, "done");
+          break;
         case "HowtoBuy":
-			firebaseDB.handleHowToBuy(fireStore,
-				data.customerFacebookId,
-				data.commentId)
+          firebaseDB.handleHowToBuy(
+            fireStore,
+            data.customerFacebookId,
+            data.commentId
+          );
           break;
         default:
           "";
