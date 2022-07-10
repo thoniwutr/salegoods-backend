@@ -210,9 +210,19 @@ function processDialogFlow(fireStore, data) {
             data.commentId,"wod")
           break;
         case "askAvailable":
-            firebaseDB.handleAskAvailable(fireStore,
+
+         var wordingOrder = ''
+          if (
+            responses[0].queryResult.parameters.fields.productNo != undefined
+          ) {
+            responses[0].queryResult.parameters.fields.productNo.listValue.values.forEach(
+              (element, index) =>
+              wordingOrder = element.stringValue
+            );
+          }
+        firebaseDB.handleAskAvailable(fireStore,
 				data.customerFacebookId,
-				data.commentId,"wod")
+				data.commentId,wordingOrder)
           break;
         case "LogisticPrice":
           firebaseDB.handleLogisticPrice(fireStore,

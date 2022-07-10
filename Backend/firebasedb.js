@@ -200,7 +200,7 @@ async function handleAskAvailable(fs,facebookId,commentId, wordingOrder) {
       console.log(data)
       facebook.sendTextMessage(
         facebookId,
-        `${data.available} THB ต่อชิ้น`
+        `${(data.available === 'available' && data.quantity > 0) ? `รหัสสินค้า : ${wordingOrder} มีสินค้าค่ะ` : `รหัสสินค้า : ${wordingOrder} ไม่มีมีสินค้าค่ะ`} `
       );
     })
   }
