@@ -12,6 +12,22 @@ async function createOrder(req, res) {
     .where("txnStatus", "==", "created")
     .get();
 
+
+      //Find transaction in this post ID
+  const userMagSnapshot = await firebase.fireStore
+  .collection("UserManagement")
+  .where("id", "==", payload.uid)
+  .get();
+
+
+  const userManagement = []
+  if (!userMagSnapshot.empty) {
+    userMagSnapshot.forEach((doc) => {
+      userManagement.push(doc.data());
+    });
+  }
+
+
   try {
     if (snapshot.empty) {
       res.status(404).send("Not found");
@@ -99,7 +115,7 @@ async function createOrder(req, res) {
       console.log(totalPriceMsg)
       facebook.sendTextMessage(
         payload.orderData.customerfacebookId,
-        `ขอสรุปออเดอร์ของท่านดังนี้\nรายละเอียดสินค้าที่ท่าน CF ใน live นี้\n${orderMsg}\nรวมราคาสินค้าทั้งหมด ${totalPriceMsg} บาท\n**************************`
+        `ขอสรุปออเดอร์ของท่านดังนี้\nรายละเอียดสินค้าที่ท่าน CF ใน live นี้\n${orderMsg}\nรวมราคาสินค้าทั้งหมด ${totalPriceMsg} บาท\nค่าส่ง ${userManagement[0].deliveryPrice}บาท\nรวมทั้งหมด${totalPriceMsg + Number(userManagement[0].deliveryPrice)}\n**************************\nวิธีการชำระเงิน${userManagement[0].bankTransferDetail}`
       );
     })
 
