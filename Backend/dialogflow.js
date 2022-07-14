@@ -7,7 +7,7 @@ const sessionId = "123456";
 const languageCode = "th-TH";
 const dialogflow = require("dialogflow");
 const { dataflow } = require("googleapis/build/src/apis/dataflow");
-
+var uuid = require("uuid");
 const firebaseDB = require("./firebasedb");
 const facebook = require("./facebook");
 
@@ -188,6 +188,17 @@ function processDialogFlow(fireStore, data) {
               data.customerFacebookId,
               `กรุณารอซักครู่ Admin กำลังตอบกลับ`
             );
+
+            const askAdmin = {
+              id: uuid.v4(),
+              customerFacebookId: data.customerFacebookId,
+              username: data.username,
+              message: data.commentMsg,
+              postId : data.postId,
+              createdDate : new Date().toString(),
+            };
+          
+            firebaseDB.recordAskAdmin(fireStore,askAdmin)  
             //Update Status
             firebaseDB.updateProcess(fireStore, data.commentId, "done");
           }
@@ -268,7 +279,6 @@ function processDialogFlow(fireStore, data) {
             fireStore,
             data.customerFacebookId,
             data.commentId,
-            "wod"
           );
           break;
         case "askProductDetail":

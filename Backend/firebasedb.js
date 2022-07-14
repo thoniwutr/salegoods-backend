@@ -100,6 +100,11 @@ function recordOrder(fs, order) {
   });
 }
 
+function recordAskAdmin(fs, askAdmin) {
+  const docRef = fs.collection("AskAdmin").doc(askAdmin.id);
+  docRef.set(askAdmin);
+}
+
 async function handleCALLLogistic(fs,facebookId,commentId) {
   const snapshot = await fs
   .collection("Order")
@@ -403,6 +408,7 @@ module.exports = {
   handleHowToBuy,
   handleAskAvailable,
   handleAskDetail,
+  recordAskAdmin,
   admin,
   fireStore,
 };
