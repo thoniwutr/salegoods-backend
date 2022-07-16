@@ -65,7 +65,7 @@ async function createOrder(req, res) {
         const orderData = {
           postId: txn.transactionDetail.postId,
           customerfacebookId: product.facebookId,
-          createdDate: new Date().toDateString(),
+          createdDate: new Date().toString(),
           customerName: txn.transactionDetail.username,
           orderStatus: "waiting for payment",
         };
