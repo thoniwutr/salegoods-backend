@@ -119,19 +119,13 @@ async function handleCALLLogistic(fs,facebookId,commentId) {
       );
     })
   }else{
-    let index = 0
-    snapshot.forEach((doc) => {
-      console.log(index)
-      if(index === (snapshot.size-1)){
-        console.log(snapshot.size)
-        var data = doc.data();
-        console.log(data)
-        facebook.sendTextMessage(
-          facebookId,
-          `รายการสั่งซื้อ ${data.orderData.createdDate}\nสถานะ : ${data.orderData.orderStatus}\n+++++++++++++++++++++++++++++\n*ระยะเวลาในการส่งสินค้าใช้เวลา 3-7วันขึ้นอยู่กับขนส่งแต่ละพื้นที่\n**หากท่านชำระเงินแล้วสินค้าจะถูกส่งในวันถัดไป”`
-        );
-      }
-      index++
+    snapshot.forEach((doc,index) => {
+      var data = doc.data();
+      console.log(data)
+      facebook.sendTextMessage(
+        facebookId,
+        `รายการสั่งซื้อ ${data.orderData.createdDate}\nสถานะ : ${data.orderData.orderStatus}\n+++++++++++++++++++++++++++++\n*ระยะเวลาในการส่งสินค้าใช้เวลา 3-7วันขึ้นอยู่กับขนส่งแต่ละพื้นที่\n**หากท่านชำระเงินแล้วสินค้าจะถูกส่งในวันถัดไป”`
+      );
     })
   }
   updateProcess(fs, commentId, "done");
